@@ -12,7 +12,7 @@ back to the agent; publishing refuses until every item is approved and every che
 
 | # | Beat | The line, roughly | On screen | Sec |
 |---|------|-------------------|-----------|----:|
-| 1 | Surge | A billion commits in 2025. Now 275 million a week. Actions minutes doubled in a week. | Kyle Daigle (GitHub COO) on X, 3 Apr 2026 | 30 |
+| 1 | Surge | A billion commits last year. At today's pace, fourteen billion this year. | Two bars: 2025 (1.0B, reported) vs 2026 at the April pace (275M/week × 52 = 14.3B, hatched: a linear extrapolation Daigle says won't hold). Source: Kyle Daigle (GitHub COO) on X, 3 Apr 2026 | 30 |
 | 2 | Tension | Tens of billions of lines of code that will never see the light of a CPU. | ThePrimeagen on X, 3 Apr 2026 | 20 |
 | 3 | Shift | 121 million new repos in a year, a new developer every second, many of them not engineers. | Octoverse 2025 | 30 |
 | 4 | Problem | The pull request is the same as five years ago: here is a bunch of code to read. | A real PR files tab (Shopify/dawn #3946) | 30 |
