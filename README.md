@@ -8,18 +8,34 @@ client-side UI changes where every visible change is an item with an expectation
 evidence (before, after, winner, desktop and mobile), and a verdict. Anything flagged goes
 back to the agent; publishing refuses until every item is approved and every check passed.
 
-## Pitch sequence (about five minutes)
+## Thesis
 
-| # | Beat | The line, roughly | On screen | Sec |
-|---|------|-------------------|-----------|----:|
-| 1 | Surge | A billion commits last year. At today's pace, fourteen billion this year. | Two bars: 2025 (1.0B, reported) vs 2026 at the April pace (275M/week × 52 = 14.3B, hatched: a linear extrapolation Daigle says won't hold). Source: Kyle Daigle (GitHub COO) on X, 3 Apr 2026 | 30 |
-| 2 | Tension | Tens of billions of lines of code that will never see the light of a CPU. | ThePrimeagen on X, 3 Apr 2026 | 20 |
-| 3 | Shift | 121 million new repos in a year, a new developer every second, many of them not engineers. | Octoverse 2025 | 30 |
-| 4 | Problem | The pull request is the same as five years ago: here is a bunch of code to read. | A real PR files tab (Shopify/dawn #3946) | 30 |
-| 5 | Question | How do you make it safe for a non-technical builder to merge? | One line, dark slide | 10 |
-| 6 | Answer | Gates own technical safety and fail closed. The person owns one question: does it look like what we meant? | Who-answers-what table | 40 |
-| 7 | Demo | A store change comes back as items: expect this, the agent found that, here is before, after and winner. Looks right, or needs a change. | The review card | 90 |
-| 8 | Loop and close | A flag is a prompt to the agent. Publishing refuses until every item is approved. Every verdict is a record from day one. | Send to agent, the 409 | 50 |
+Increase the volume of safely merged pull requests through guided PR review with an
+integrated feedback cycle, then over time run a loop that raises the quality of the
+implementations. We focus on promoting winning A/B tests, so the target implementation is
+already known: the winner's own code and screenshots are the answer key. That makes
+fidelity something a non-engineer can judge and a machine can score. Merges are the
+scoreboard, never the training reward.
+
+## Pitch spine (about five minutes)
+
+| # | Beat | The line, roughly | Evidence on hand |
+|---|------|-------------------|------------------|
+| 1 | Surge | One billion commits in 2025; fourteen billion at this year's pace (275M/week × 52, linear; Daigle says it won't hold). Tens of billions of lines nobody read. | Kyle Daigle (GitHub COO) on X, 3 Apr 2026; two-bar chart |
+| 2 | Bottleneck | The PR screen has not changed, and a merge is mostly about the reviewer: the diff alone predicts acceptance at AUC 0.61–0.68; review activity takes it to 0.94. | A real PR files tab (Shopify/dawn #3946); arXiv 2607.12057, Dey & Mockus |
+| 3 | Insight | When the PR ports a winning A/B test, the target is known. A non-engineer can judge fidelity; a machine can score it. | the wholesale-page test winner vs port screenshot pair; 32,049 archived variants |
+| 4 | Product | Guided review with a feedback cycle: one item per visible change, expectation first, evidence on request, verdict per item; a flag is a prompt; the agent resubmits. | Review card on crobot branch shopify-store-review; 1,091 tests green |
+| 5 | Safely | Gates own technical safety and fail closed; publishing refuses (409) until every item is approved and files are unchanged. The rehearsal found the hazard: publishing moves every section id. | 8 of 8 ids moved on the test store, 9 Oct |
+| 6 | Volume | 442 wins in nine months across 82 customer orgs, 30/month on Shopify. Promotion in onboarding makes merge rate a monthly scoreboard. | Jarvis counts, 10 Oct; sample-size table |
+| 7 | Loop | Train on parity, score on merges. Record from PR one; lessons file at 20; prompt evolution on a few hundred synthetic ports; Coframe alone holds the label "this change moved conversion". | Records-to-capability table |
+| 8 | Demo and ask | Approve one item, flag one, watch the prompt reach the agent, watch publish refuse. Ask: promotion in onboarding; the pins join. | Local render; Clearship mock as "what it becomes" |
+
+## What the pitch does not claim
+
+- That the agent learns from merges (one delayed bit per PR, mostly about the reviewer).
+- That weights train this quarter (zero reviewed promotions recorded yet).
+- That Jarvis and crobot are joined (API keys cannot create pins; the join is proposed).
+- That anything went live on a fragrance retailer (test store only).
 
 ## Sources for the opening numbers
 
