@@ -54,13 +54,13 @@ ul.plain{margin:0;padding:0;list-style:none;max-width:62ch}ul.plain li{padding:1
 /* review */
 .clist{display:flex;flex-direction:column;max-width:900px}.clist .c{display:flex;gap:14px;align-items:baseline;border-top:1px solid var(--border2);padding:14px 0;font-size:18px}.clist .c:first-child{border-top:0}.clist .n{font-size:14px;color:var(--faint);min-width:22px}.clist code{font-family:ui-monospace,Menlo,monospace;font-size:13px;background:#fff;border:1px solid var(--border);padding:2px 9px;border-radius:999px}.clist .where{color:var(--muted);font-size:15px}.clist .rm{margin-left:auto;color:var(--faint);cursor:pointer}
 .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
-.btn{border:1px solid var(--ink);background:#fff;color:var(--ink);border-radius:999px;padding:13px 24px;font-size:17px;cursor:pointer;transition:transform .25s ease}.btn:hover{transform:translateY(-1px)}.btn.p{background:var(--ink);color:#fff}.btn:disabled{opacity:.35;cursor:default;transform:none}
+.btn{text-decoration:none;display:inline-block;border:1px solid var(--ink);background:#fff;color:var(--ink);border-radius:999px;padding:13px 24px;font-size:17px;cursor:pointer;transition:transform .25s ease}.btn:hover{transform:translateY(-1px)}.btn.p{background:var(--ink);color:#fff}.btn:disabled{opacity:.35;cursor:default;transform:none}
 .out{display:none;margin-top:22px;background:var(--dark);color:#fff;padding:20px 22px;border-radius:18px;max-width:1000px}.out.show{display:block}.out h3{color:#fff;font-size:17px;margin:0 0 6px}.out pre{white-space:pre-wrap;font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.85);background:rgba(255,255,255,.06);padding:12px 14px;border-radius:10px;margin:0 0 16px;font-family:ui-monospace,Menlo,monospace}.out .btn{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
 footer{padding:48px 0 0;font-size:14px;color:var(--faint)}
 @media (max-width:900px){.arch,.pair,.pair.left,.pair.right{grid-template-columns:1fr}}
 </style></head><body>
 <main>
-<section id="goal"><h1 class="display" id="goaltext"></h1><p class="lead" id="goalwhy"></p><p class="small" id="prline"></p></section>
+<section id="goal"><h1 class="display" id="goaltext"></h1><p class="lead" id="goalwhy"></p><p class="small" id="prline"></p><div class="btns" style="margin-top:22px"><a class="btn p" id="viewcode" target="_blank" rel="noopener">View the code ↗</a></div></section>
 <section id="evidence"><h2 class="display">Before and after</h2><div class="ctl"><div class="seg" id="seg"><span data-vp="desktop" class="on">Desktop</span><span data-vp="mobile">Mobile</span></div></div>
  <div class="row"><h3 class="display">Screenshot</h3><div class="pair" id="pairshot"></div><p class="hint">To comment, click Add comment, then click a point on the after image.</p></div>
  <div class="row"><h3 class="display">Video</h3><div class="pair" id="pairvideo"></div><p class="hint">Four seconds. The page loads, scrolls, and a pointer moves over the change.</p></div>
@@ -82,7 +82,7 @@ const ICON = '<svg viewBox="0 0 24 24"><path d="M15 4h5v5M9 20H4v-5M20 4l-6 6M4 
 const ICON_IN = '<svg viewBox="0 0 24 24"><path d="M10 14H5v5M14 10h5V5M14 10l6-6M10 14l-6 6"/></svg>';
 
 $('#goaltext').textContent = D.goal.text; $('#goalwhy').textContent = D.goal.why;
-$('#prline').textContent = D.goal.meta || '';
+$('#prline').textContent = D.goal.meta || ''; $('#viewcode').href = D.pr.url + '/files';
 $('#foot').textContent = D.footer;
 function renderChecks() { $('#checks').innerHTML = (D.manual || []).map((c, i) => `<label><input type="checkbox" data-i="${i}" ${S.ticks[i] ? 'checked' : ''}><span class="n">${i + 1}</span><span>${esc(c)}</span></label>`).join(''); $('#checks').querySelectorAll('input').forEach(b => b.onchange = () => { S.ticks[b.dataset.i] = b.checked; save('ticks', S.ticks); gate(); }); gate(); }
 function gate() { const all = (D.manual || []).every((c, i) => S.ticks[i]); $('#approve').toggleAttribute('disabled', !all); $('#approve').title = all ? '' : 'Tick every item in the checklist first.'; }
