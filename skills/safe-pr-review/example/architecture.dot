@@ -1,0 +1,16 @@
+digraph G {
+  rankdir=TB;
+  fan [label="Fan on novig.com"];
+  home [label="Home page"];
+  strip [label="Before: live strip,\n20 games in a row" tone=warn];
+  board [label="After: board by sport,\ntop 3 per sport" tone=accent];
+  games [label="games.js\n(20 live games)"];
+  odds [label="suggestOdds()\nplaceholder"];
+  book [label="Order book API\n(not wired)"];
+  fan -> home [label="opens"];
+  home -> strip [label="renders"];
+  home -> board [label="renders instead"];
+  games -> board [label="ranked by closeness"];
+  odds -> board [label="Best odds · Trade"];
+  book -> odds [label="follow-up: real prices" tone=warn];
+}

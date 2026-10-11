@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Safe PR review</title>
+<style>
+:root{--bg:#f4f2ec;--paper:#fff;--ink:#1f1e1c;--muted:#57534c;--faint:#6e6a63;--line:#ddd9cf;--accent:#30b487;--blue:#179be7;--amber:#a8762a;--red:#b4382d;--mono:ui-monospace,Menlo,monospace;--sans:ui-sans-serif,-apple-system,'Helvetica Neue',sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 var(--sans)}
+.top{display:flex;align-items:center;gap:14px;padding:12px 22px;background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.top b{font-size:15px}.top .m{font:12px var(--mono);color:var(--muted)}.top .m a{color:inherit}
+.pill{margin-left:auto;font-size:12px;padding:4px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+.k{font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+main{max-width:1400px;margin:0 auto;padding:0 22px 60px}
+section.part{padding:22px 0 8px;border-bottom:1px solid var(--line)}
+section.part h2{margin:4px 0 10px;font-size:22px;font-weight:600;letter-spacing:-.01em}
+.goal h2{font-size:30px;margin:6px 0}
+.arch{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 16px;display:flex;gap:24px;align-items:flex-start}
+.arch .art svg{max-width:560px;height:auto;display:block}
+.arch .txt{flex:1;color:var(--muted)}
+table{border-collapse:collapse;width:100%;background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:12px;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:0}
+.who{font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.who.gate{color:var(--accent)}.who.person{color:var(--blue)}
+.chk{display:inline-block;width:14px;height:14px;border:1.5px solid var(--line);border-radius:3px;vertical-align:-2px;margin-right:6px}
+.chk.on{background:var(--accent);border-color:var(--accent)}
+.state{font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.state.pass{color:var(--accent)}.state.fail{color:var(--red)}.state.na{color:var(--amber)}
+/* reviewer */
+.rev{padding-top:18px}
+.feat{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0 12px}
+.feat .f{padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--paper);font-size:13px;cursor:pointer}
+.feat .f.on{background:var(--ink);color:#fff;border-color:var(--ink)}.feat .f.done{border-color:var(--accent)}
+.feat .st{margin-left:auto;font-size:12px;color:var(--muted)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.row{display:flex;gap:16px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}.seg span{padding:6px 14px;font-size:13px;cursor:pointer}.seg span.on{background:var(--ink);color:#fff}
+.tabs{display:inline-flex;gap:18px;margin-left:8px}.tabs span{font-size:13px;padding:6px 0;border-bottom:2px solid transparent;color:var(--muted);cursor:pointer}.tabs span.on{color:var(--ink);border-color:var(--accent)}
+.meta{margin-left:auto;font-size:12px;color:var(--muted)}
+.exp{font-size:13px;color:var(--muted);margin:0 0 12px}.exp b{color:var(--ink)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pair.mobile{grid-template-columns:repeat(2,minmax(0,420px));justify-content:center}
+.shot{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#000}
+.shot .img{position:relative}
+.shot img,.shot video{display:block;width:100%;height:auto}
+.shot iframe{display:block;width:100%;border:0;background:#050505}
+.lab{display:block;font:11px var(--mono);letter-spacing:.06em;background:var(--paper);color:var(--muted);padding:5px 10px;border-bottom:1px solid var(--line)}
+.after .img .hit{position:absolute;inset:0;cursor:crosshair;z-index:1}
+.box{position:absolute;border:1px dashed rgba(23,155,231,.0);pointer-events:none;transition:border-color .1s}
+.after:hover .box{border-color:rgba(23,155,231,.55)}
+.pin{position:absolute;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;background:var(--amber);color:#fff;font:600 12px/22px var(--sans);text-align:center;box-shadow:0 0 0 3px #fff;z-index:3;pointer-events:none}
+.composer{position:absolute;z-index:4;background:var(--ink);color:#fff;padding:10px;border-radius:8px;width:300px;font-size:12px}
+.composer .src{font:11px var(--mono);color:#b9b4aa;margin-bottom:6px}
+.composer textarea{width:100%;min-height:56px;border:0;border-radius:6px;padding:6px 8px;font:13px var(--sans);resize:vertical}
+.composer .b{display:flex;gap:8px;margin-top:8px}.composer button{border:0;border-radius:6px;padding:6px 10px;font-size:12px;cursor:pointer}
+.composer .ok{background:var(--accent);color:#fff}.composer .no{background:#444;color:#fff}
+.comments{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
+.comments ol{margin:6px 0 0 18px;padding:0}.comments li{font-size:13px;margin:6px 0}.comments code{font:12px var(--mono);background:var(--bg);padding:1px 5px;border-radius:3px}
+.comments .x{color:var(--faint);cursor:pointer;margin-left:6px}
+.actions{display:flex;gap:10px;margin-top:14px;align-items:center;flex-wrap:wrap}
+.btn{padding:8px 14px;border-radius:8px;border:1px solid var(--ink);font-size:13px;background:var(--paper);cursor:pointer}
+.btn.p{background:var(--ink);color:#fff}.btn.ok{background:var(--accent);border-color:var(--accent);color:#fff}
+.actions .n{margin-left:auto;font-size:12px;color:var(--muted)}
+.out{margin-top:14px;display:none}.out.show{display:block}
+.out pre{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:10px 12px;font:12px/1.5 var(--mono);white-space:pre-wrap;max-height:320px;overflow:auto}
+.out .k{margin-bottom:4px}
+.gap{font-style:italic;color:var(--muted);border-left:2px solid var(--line);padding:6px 10px}
+footer{padding:24px 0;color:var(--faint);font-size:12px}
+</style></head><body>
+<div class="top"><b>Safe PR review</b><span class="m" id="prline"></span><span class="pill" id="progress"></span></div>
+<main>
+<section class="part goal"><div class="k">1 · Goal</div><h2 id="goal"></h2><p class="exp" id="goalwhy"></p></section>
+<section class="part"><div class="k">2 · Architecture, before and after</div><h2>What changes in the system</h2><div class="arch"><div class="art" id="arch"></div><div class="txt" id="archtxt"></div></div></section>
+<section class="part"><div class="k">3 · Risks</div><h2>What breaks if this goes wrong</h2><table id="risks"><thead><tr><th>Risk</th><th>Seen or likely</th><th>What catches it</th></tr></thead><tbody></tbody></table></section>
+<section class="part"><div class="k">4 · QA checklist</div><h2>What to check before it is safe</h2><table id="checks"><thead><tr><th>Check</th><th>Who</th><th>Evidence</th><th>State</th></tr></thead><tbody></tbody></table><p class="exp" style="margin-top:8px">A check that was not run shows as <span class="state na">not checked</span> and blocks the merge. Nothing missing looks like a pass.</p></section>
+<section class="part rev"><div class="k">5 · The reviewer · one feature at a time</div><h2>Does each feature look like what we meant?</h2>
+<div class="feat" id="feat"></div>
+<div class="card">
+ <div class="row"><div class="seg" id="seg"><span data-vp="mobile">Mobile</span><span data-vp="desktop" class="on">Desktop</span></div><div class="tabs" id="tabs"><span data-mode="shot" class="on">Screenshot</span><span data-mode="video">Video</span><span data-mode="live">Live page</span></div><span class="meta" id="meta"></span></div>
+ <p class="exp" id="exp"></p>
+ <div class="pair" id="pair"></div>
+ <div class="comments"><span class="k">Comments on this feature · <span id="ccount">0</span></span><ol id="clist"></ol></div>
+ <div class="actions"><span class="btn ok" id="approve">Looks right</span><span class="btn" id="submitc">Submit as comments</span><span class="btn p" id="submitf">Submit and ask the agent to fix</span><span class="n" id="lock"></span></div>
+ <div class="out" id="out"></div>
+</div></section>
+<section class="part"><div class="k">6 · Why</div><h2 id="whyh"></h2><p class="exp" id="why"></p></section>
+<footer id="foot"></footer>
+</main>
+<script id="data" type="application/json">/*DATA*/</script>
+<script>
+const D = JSON.parse(document.getElementById('data').textContent);
+const S = { feature: 0, vp: 'desktop', mode: 'shot', comments: load('comments', {}), approved: load('approved', {}) };
+function load(k, d) { try { return JSON.parse(localStorage.getItem('spr:' + D.pr.key + ':' + k)) ?? d; } catch { return d; } }
+function save(k, v) { try { localStorage.setItem('spr:' + D.pr.key + ':' + k, JSON.stringify(v)); } catch {} }
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+// 1–4, 6
+$('#prline').innerHTML = `<a href="${esc(D.pr.url)}">${esc(D.pr.repo)} · PR #${esc(D.pr.number)}</a> · ${esc(D.pr.title)} · by ${esc(D.pr.author)}`;
+$('#goal').textContent = D.goal.text; $('#goalwhy').innerHTML = `<b>${D.goal.text.trim().split(/\s+/).length} words.</b> ${esc(D.goal.why)}`;
+$('#arch').innerHTML = D.architecture.svg || '<p class="gap">No diagram was drawn for this PR.</p>'; $('#archtxt').innerHTML = `<p><b>Before.</b> ${esc(D.architecture.before)}</p><p><b>After.</b> ${esc(D.architecture.after)}</p>`;
+$('#risks tbody').innerHTML = D.risks.map(r => `<tr><td>${esc(r.risk)}</td><td>${esc(r.seen)}</td><td>${esc(r.gate)}</td></tr>`).join('');
+$('#checks tbody').innerHTML = D.checks.map(c => `<tr><td>${esc(c.check)}</td><td><span class="who ${c.who === 'Gate' ? 'gate' : 'person'}">${esc(c.who)}</span></td><td>${esc(c.evidence)}</td><td><span class="state ${c.state === 'pass' ? 'pass' : c.state === 'fail' ? 'fail' : 'na'}">${c.state === 'pass' ? 'passed' : c.state === 'fail' ? 'failed' : 'not checked'}</span>${c.detail ? ` <span style="color:var(--muted)">· ${esc(c.detail)}</span>` : ''}</td></tr>`).join('');
+$('#whyh').textContent = D.why.headline; $('#why').textContent = D.why.text;
+$('#foot').textContent = D.footer;
+
+// 5: the reviewer
+function feature() { return D.features[S.feature]; }
+function comments() { const f = feature(); S.comments[f.id] = S.comments[f.id] || []; return S.comments[f.id]; }
+function renderFeat() {
+  $('#feat').innerHTML = D.features.map((f, i) => `<span class="f ${i === S.feature ? 'on' : ''} ${S.approved[f.id] ? 'done' : ''}" data-i="${i}">${i + 1} · ${esc(f.title)}${S.approved[f.id] ? ' ✓' : ''}</span>`).join('') + `<span class="st">one feature at a time · ${esc(feature().page || '')}</span>`;
+  $('#feat').querySelectorAll('.f').forEach(e => e.onclick = () => { S.feature = +e.dataset.i; renderAll(); });
+  const done = D.features.filter(f => S.approved[f.id]).length; $('#progress').textContent = `${done} of ${D.features.length} features approved`;
+  $('#lock').textContent = done === D.features.length && D.checks.every(c => c.state === 'pass') ? 'Every feature approved and every check passed: merge is unlocked' : 'Merge stays locked until every feature is approved and every check passes';
+}
+function renderPair() {
+  const f = feature(), v = f.viewports[S.vp]; const pair = $('#pair'); pair.className = 'pair ' + S.vp;
+  $('#seg').querySelectorAll('span').forEach(s => s.classList.toggle('on', s.dataset.vp === S.vp));
+  $('#tabs').querySelectorAll('span').forEach(s => s.classList.toggle('on', s.dataset.mode === S.mode));
+  $('#meta').textContent = `${v.size.width} × ${v.size.height}${v.after.offset ? ' · cropped to the feature' : ''} · before = ${D.pr.base} · after = this PR`;
+  $('#exp').innerHTML = `<b>Expect:</b> ${esc(f.expect)} <b>Agent found:</b> ${esc(f.found)}`;
+  const side = (which) => {
+    const a = v[which]; const lab = which === 'before' ? `BEFORE · ${esc(D.pr.base)}` : 'AFTER · PR';
+    if (S.mode === 'shot') return a.screenshot ? `<img src="${a.screenshot}" alt="">` : `<p class="gap" style="color:#ccc">No screenshot was captured.</p>`;
+    if (S.mode === 'video') return a.video ? `<video src="${a.video}" autoplay muted loop playsinline></video>` : `<p class="gap" style="color:#ccc">No video was recorded.</p>`;
+    return `<iframe src="${a.live}" style="height:${Math.round(v.size.height * (S.vp === 'mobile' ? 1 : 0.62))}px" title="${lab}"></iframe>`;
+  };
+  pair.innerHTML = `<div class="shot before"><span class="lab">BEFORE · ${esc(D.pr.base)}</span><div class="img">${side('before')}</div></div><div class="shot after"><span class="lab">AFTER · PR</span><div class="img">${side('after')}<div class="hit" id="hit"></div><div id="pins"></div></div></div>`;
+  if (S.mode !== 'shot') { $('#hit').style.pointerEvents = 'none'; }
+  const after = pair.querySelector('.after .img'); const img = after.querySelector('img');
+  const place = () => { renderPins(); renderBoxes(); };
+  if (img) { if (img.complete) place(); else img.onload = place; } else place();
+  $('#hit').onclick = (ev) => { if (S.mode !== 'shot') return; const r = after.getBoundingClientRect(); const x = (ev.clientX - r.left) / r.width, y = (ev.clientY - r.top) / r.height; openComposer(x, y, ev.clientX - r.left, ev.clientY - r.top); };
+  renderComments();
+}
+function hitSource(x, y) {
+  // x,y are fractions of the after screenshot; boxes are in CSS px of the viewport screenshot
+  const v = feature().viewports[S.vp]; const sz = v.after.screenshotSize || v.size; const off = v.after.offset || { x: 0, y: 0 };
+  const px = x * sz.width + off.x, py = y * sz.height + off.y; let best = null, bestArea = Infinity;
+  for (const b of v.after.boxes || []) { const r = b.rect; if (px >= r.x && px <= r.x + r.w && py >= r.y && py <= r.y + r.h) { const area = r.w * r.h; if (area < bestArea) { best = b; bestArea = area; } } }
+  return best;
+}
+function renderBoxes() {
+  const v = feature().viewports[S.vp]; const after = $('#pair .after .img'); if (!after) return;
+  after.querySelectorAll('.box').forEach(e => e.remove()); if (S.mode !== 'shot') return;
+  const sz = v.after.screenshotSize || v.size; const off = v.after.offset || { x: 0, y: 0 }; const W = sz.width, H = sz.height;
+  for (const b of (v.after.boxes || []).filter(b => b.src)) { const r = b.rect; const d = document.createElement('div'); d.className = 'box'; d.style.left = ((r.x - off.x) / W * 100) + '%'; d.style.top = ((r.y - off.y) / H * 100) + '%'; d.style.width = (r.w / W * 100) + '%'; d.style.height = (r.h / H * 100) + '%'; after.appendChild(d); }
+}
+function renderPins() {
+  const pins = $('#pins'); if (!pins) return; const cs = comments().filter(c => c.vp === S.vp);
+  pins.innerHTML = cs.map((c, i) => `<span class="pin" style="left:${c.x * 100}%;top:${c.y * 100}%">${comments().indexOf(c) + 1}</span>`).join('');
+}
+function openComposer(x, y, px, py) {
+  document.querySelectorAll('.composer').forEach(e => e.remove());
+  const hit = hitSource(x, y); const after = $('#pair .after .img');
+  const c = document.createElement('div'); c.className = 'composer'; c.style.left = Math.min(px, after.clientWidth - 310) + 'px'; c.style.top = Math.min(py + 12, after.clientHeight - 150) + 'px';
+  c.innerHTML = `<div class="src">${hit && hit.src ? '→ ' + esc(hit.src) + (hit.text ? ' · "' + esc(hit.text.slice(0, 40)) + '"' : '') : 'no changed element here · comment on the feature'} · ${S.vp}</div><textarea placeholder="What should change here?"></textarea><div class="b"><button class="ok">Add comment</button><button class="no">Cancel</button></div>`;
+  after.appendChild(c); const ta = c.querySelector('textarea'); ta.focus();
+  c.querySelector('.no').onclick = () => c.remove();
+  c.querySelector('.ok').onclick = () => { const text = ta.value.trim(); if (!text) return; comments().push({ text, x, y, vp: S.vp, src: hit && hit.src || null, element: hit && hit.text || null, at: new Date().toISOString() }); save('comments', S.comments); c.remove(); renderPins(); renderComments(); };
+}
+function renderComments() {
+  const cs = comments(); $('#ccount').textContent = cs.length;
+  $('#clist').innerHTML = cs.map((c, i) => `<li>${esc(c.text)} ${c.src ? `<code>${esc(c.src)}</code>` : ''} · ${c.vp}<span class="x" data-i="${i}" title="remove">✕</span></li>`).join('');
+  $('#clist').querySelectorAll('.x').forEach(e => e.onclick = () => { cs.splice(+e.dataset.i, 1); save('comments', S.comments); renderPins(); renderComments(); });
+}
+function reviewMarkdown(mode) {
+  const f = feature(); const cs = comments(); const lines = [`### Review of feature ${S.feature + 1}: ${f.title}`, '', `Expectation: ${f.expect}`, `Agent found: ${f.found}`, ''];
+  if (!cs.length) lines.push('_No comments._'); else cs.forEach((c, i) => lines.push(`${i + 1}. ${c.text}${c.src ? ` (\`${c.src}\`)` : ''} · ${c.vp}${c.element ? ` · on "${c.element}"` : ''}`));
+  lines.push('', mode === 'fix' ? '**Requested changes.** Fix each item on the PR branch, re-capture before/after at both viewports, and resubmit the review for this feature. Unchanged features keep their approval.' : '_Left as comments._');
+  return lines.join('\n');
+}
+function agentPrompt() {
+  const f = feature(); const cs = comments();
+  return `Review feedback on PR #${D.pr.number} (${D.pr.repo}), feature "${f.title}" (${f.id}), page ${f.page}:\n\n` + cs.map((c, i) => `${i + 1}. [${c.vp}] ${c.text}${c.src ? `\n   → ${c.src}` : ''}${c.element ? `\n   element: "${c.element}"` : ''}`).join('\n') + `\n\nFix these on the PR branch, stay within the files of this PR, re-capture this feature's evidence at the ${[...new Set(cs.map(c => c.vp))].join(' and ')} viewport(s), and regenerate the review. Reply with one short sentence saying what you will change, then do it.`;
+}
+function showOut(mode) {
+  const md = reviewMarkdown(mode); const out = $('#out'); out.className = 'out show';
+  const cmd = `gh pr review ${D.pr.number} --repo ${D.pr.repo} --comment --body-file review-${feature().id}.md`;
+  out.innerHTML = `<div class="k">Review, as it posts to the PR</div><pre>${esc(md)}</pre><div class="k">Command</div><pre>${esc(cmd)}</pre>` + (mode === 'fix' ? `<div class="k">Prompt sent to the agent</div><pre>${esc(agentPrompt())}</pre>` : '') + `<div class="actions"><span class="btn" id="dl">Download review-${esc(feature().id)}.md</span>${mode === 'fix' ? `<span class="btn" id="dlp">Download fix-prompt.md</span>` : ''}</div>`;
+  $('#dl').onclick = () => download(`review-${feature().id}.md`, md); if (mode === 'fix') $('#dlp').onclick = () => download('fix-prompt.md', agentPrompt());
+}
+function download(name, text) { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type: 'text/markdown' })); a.download = name; a.click(); }
+$('#seg').onclick = (e) => { if (e.target.dataset.vp) { S.vp = e.target.dataset.vp; renderPair(); } };
+$('#tabs').onclick = (e) => { if (e.target.dataset.mode) { S.mode = e.target.dataset.mode; renderPair(); } };
+$('#approve').onclick = () => { S.approved[feature().id] = true; save('approved', S.approved); renderFeat(); if (S.feature < D.features.length - 1) { S.feature++; renderAll(); } };
+$('#submitc').onclick = () => showOut('comments'); $('#submitf').onclick = () => showOut('fix');
+function renderAll() { renderFeat(); renderPair(); $('#out').className = 'out'; }
+renderAll();
+</script></body></html>

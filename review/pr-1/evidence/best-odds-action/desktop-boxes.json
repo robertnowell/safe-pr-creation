@@ -1,0 +1,127 @@
+{
+  "feature": "best-odds-action",
+  "viewport": "desktop",
+  "size": {
+    "width": 1440,
+    "height": 900
+  },
+  "page": "index.html",
+  "afterSelector": "#live-scoreboard .sb-game",
+  "selectorFound": true,
+  "screenshot": "best-odds-action/desktop-after.png",
+  "changedFiles": [
+    "scoreboard/scoreboard.js",
+    "scoreboard/scoreboard.css"
+  ],
+  "boxes": [
+    {
+      "rect": {
+        "x": 100,
+        "y": 8,
+        "w": 284,
+        "h": 72
+      },
+      "inViewport": true,
+      "tag": "div",
+      "text": "Q3 3:20CPat18IDST18Best oddsIDST 49% · $100 ▸ $204Trade",
+      "classes": [
+        "sb-game"
+      ],
+      "id": null,
+      "role": "root",
+      "src": "scoreboard/scoreboard.js:55",
+      "srcMethod": "data-src"
+    },
+    {
+      "rect": {
+        "x": 110,
+        "y": 15,
+        "w": 100,
+        "h": 16
+      },
+      "inViewport": true,
+      "tag": "div",
+      "text": "Q3 3:20",
+      "classes": [
+        "sb-status"
+      ],
+      "id": null,
+      "role": "child",
+      "src": "scoreboard/scoreboard.js:57",
+      "srcMethod": "data-src"
+    },
+    {
+      "rect": {
+        "x": 110,
+        "y": 34,
+        "w": 100,
+        "h": 16
+      },
+      "inViewport": true,
+      "tag": "div",
+      "text": "CPat18",
+      "classes": [
+        "sb-team"
+      ],
+      "id": null,
+      "role": "child",
+      "src": "scoreboard/scoreboard.js:44",
+      "srcMethod": "data-src"
+    },
+    {
+      "rect": {
+        "x": 110,
+        "y": 53,
+        "w": 100,
+        "h": 16
+      },
+      "inViewport": true,
+      "tag": "div",
+      "text": "IDST18",
+      "classes": [
+        "sb-team"
+      ],
+      "id": null,
+      "role": "child",
+      "src": "scoreboard/scoreboard.js:44",
+      "srcMethod": "data-src"
+    },
+    {
+      "rect": {
+        "x": 220,
+        "y": 15,
+        "w": 154,
+        "h": 54
+      },
+      "inViewport": true,
+      "tag": "div",
+      "text": "Best oddsIDST 49% · $100 ▸ $204Trade",
+      "classes": [
+        "sb-action"
+      ],
+      "id": null,
+      "role": "child",
+      "src": "scoreboard/scoreboard.js:64",
+      "srcMethod": "data-src"
+    },
+    {
+      "rect": {
+        "x": 321,
+        "y": 49,
+        "w": 53,
+        "h": 20
+      },
+      "inViewport": true,
+      "tag": "button",
+      "text": "Trade",
+      "classes": [
+        "sb-trade"
+      ],
+      "id": null,
+      "role": "data-src",
+      "src": "scoreboard/scoreboard.js:71",
+      "srcMethod": "data-src"
+    }
+  ],
+  "error": null
+}

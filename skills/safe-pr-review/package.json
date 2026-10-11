@@ -1,0 +1,1 @@
+{ "name": "safe-pr-review", "private": true, "type": "commonjs", "description": "Generate a safe PR review page: evidence capture, gates, and the interactive reviewer.", "dependencies": { "playwright": "1.55.0", "pngjs": "7.0.0" }, "scripts": { "capture": "node capture.mjs", "gates": "node gates.js", "build": "node build-review.mjs" } }

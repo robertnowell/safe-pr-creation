@@ -1,0 +1,10 @@
+{
+  "before": "<path to the base checkout: demo/novig at main>",
+  "after": "<path to the head checkout: demo/novig on the PR branch>",
+  "viewports": { "mobile": [390, 844], "desktop": [1440, 900] },
+  "features": [
+    { "id": "sport-groups", "title": "Games grouped by sport", "pages": { "mobile": "index.mobile.html", "desktop": "index.html" }, "beforeSelector": ".r-lltvgl", "afterSelector": "#live-scoreboard", "changedFiles": ["scoreboard/scoreboard.js", "scoreboard/scoreboard.css", "scoreboard/games.js", "index.html"] },
+    { "id": "top-3-cards", "title": "Top 3 games per sport", "pages": { "mobile": "index.mobile.html", "desktop": "index.html" }, "beforeSelector": ".r-lltvgl [tabindex=\"0\"]", "afterSelector": "#live-scoreboard .sb-sport", "changedFiles": ["scoreboard/scoreboard.js", "scoreboard/scoreboard.css", "scoreboard/games.js"] },
+    { "id": "best-odds-action", "title": "Best odds action on each game", "pages": { "mobile": "index.mobile.html", "desktop": "index.html" }, "beforeSelector": ".r-lltvgl [tabindex=\"0\"]", "afterSelector": "#live-scoreboard .sb-game", "changedFiles": ["scoreboard/scoreboard.js", "scoreboard/scoreboard.css"] }
+  ]
+}

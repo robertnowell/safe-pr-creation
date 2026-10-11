@@ -1,0 +1,356 @@
+{
+  "generatedAt": "2026-10-11T00:28:31.122Z",
+  "before": "/private/tmp/claude-501/-Users-robertnowell-Documents-tranquility-base/3cec67e9-98e4-4489-b02c-ad0b81934142/scratchpad/site-before",
+  "after": "/private/tmp/claude-501/-Users-robertnowell-Documents-tranquility-base/3cec67e9-98e4-4489-b02c-ad0b81934142/scratchpad/site-after",
+  "outDir": "/private/tmp/claude-501/-Users-robertnowell-Documents-tranquility-base/3cec67e9-98e4-4489-b02c-ad0b81934142/scratchpad/evidence",
+  "viewports": {
+    "mobile": {
+      "width": 390,
+      "height": 844
+    },
+    "desktop": {
+      "width": 1440,
+      "height": 900
+    }
+  },
+  "playwright": {
+    "version": "1.55.0",
+    "from": "/private/tmp/claude-501/-Users-robertnowell-Documents-tranquility-base/3cec67e9-98e4-4489-b02c-ad0b81934142/scratchpad/tooling",
+    "channel": "chrome"
+  },
+  "features": [
+    {
+      "id": "sport-groups",
+      "title": "Games grouped by sport",
+      "dir": "sport-groups",
+      "beforeSelector": ".r-lltvgl",
+      "afterSelector": "#live-scoreboard",
+      "changedFiles": [
+        "scoreboard/scoreboard.js",
+        "scoreboard/scoreboard.css",
+        "scoreboard/games.js",
+        "index.html"
+      ],
+      "changedFilesMissing": [],
+      "viewports": {
+        "mobile": {
+          "size": {
+            "width": 390,
+            "height": 844
+          },
+          "page": "index.mobile.html",
+          "pageExists": {
+            "before": true,
+            "after": true
+          },
+          "before": {
+            "screenshot": "sport-groups/mobile-before.png",
+            "element": "sport-groups/mobile-before-element.png",
+            "selectorFound": true,
+            "elementRect": {
+              "x": 0,
+              "y": 0,
+              "w": 390,
+              "h": 88
+            },
+            "video": "sport-groups/mobile-before.webm"
+          },
+          "after": {
+            "screenshot": "sport-groups/mobile-after.png",
+            "element": "sport-groups/mobile-after-element.png",
+            "selectorFound": true,
+            "elementRect": {
+              "x": 0,
+              "y": 0,
+              "w": 390,
+              "h": 88
+            },
+            "video": "sport-groups/mobile-after.webm"
+          },
+          "boxes": "sport-groups/mobile-boxes.json",
+          "boxesCount": 63,
+          "errors": [],
+          "timings": {
+            "beforeStillsMs": 2128,
+            "afterStillsMs": 2102,
+            "beforeVideoMs": 4425,
+            "afterVideoMs": 4369,
+            "boxesMs": 1792,
+            "totalMs": 14816
+          }
+        },
+        "desktop": {
+          "size": {
+            "width": 1440,
+            "height": 900
+          },
+          "page": "index.html",
+          "pageExists": {
+            "before": true,
+            "after": true
+          },
+          "before": {
+            "screenshot": "sport-groups/desktop-before.png",
+            "element": "sport-groups/desktop-before-element.png",
+            "selectorFound": true,
+            "elementRect": {
+              "x": 0,
+              "y": 0,
+              "w": 1440,
+              "h": 88
+            },
+            "video": "sport-groups/desktop-before.webm"
+          },
+          "after": {
+            "screenshot": "sport-groups/desktop-after.png",
+            "element": "sport-groups/desktop-after-element.png",
+            "selectorFound": true,
+            "elementRect": {
+              "x": 0,
+              "y": 0,
+              "w": 1440,
+              "h": 88
+            },
+            "video": "sport-groups/desktop-after.webm"
+          },
+          "boxes": "sport-groups/desktop-boxes.json",
+          "boxesCount": 63,
+          "errors": [],
+          "timings": {
+            "beforeStillsMs": 2072,
+            "afterStillsMs": 2036,
+            "beforeVideoMs": 4435,
+            "afterVideoMs": 4289,
+            "boxesMs": 1840,
+            "totalMs": 14673
+          }
+        }
+      },
+      "timings": {
+        "totalMs": 29490
+      }
+    },
+    {
+      "id": "top-3-cards",
+      "title": "Top 3 games per sport",
+      "dir": "top-3-cards",
+      "beforeSelector": ".r-lltvgl [tabindex=\"0\"]",
+      "afterSelector": "#live-scoreboard .sb-sport",
+      "changedFiles": [
+        "scoreboard/scoreboard.js",
+        "scoreboard/scoreboard.css",
+        "scoreboard/games.js"
+      ],
+      "changedFilesMissing": [],
+      "viewports": {
+        "mobile": {
+          "size": {
+            "width": 390,
+            "height": 844
+          },
+          "page": "index.mobile.html",
+          "pageExists": {
+            "before": true,
+            "after": true
+          },
+          "before": {
+            "screenshot": "top-3-cards/mobile-before.png",
+            "element": "top-3-cards/mobile-before-element.png",
+            "selectorFound": true,
+            "elementRect": {
+              "x": 16,
+              "y": 0,
+              "w": 216,
+              "h": 89
+            },
+            "video": "top-3-cards/mobile-before.webm"
+          },
+          "after": {
+            "screenshot": "top-3-cards/mobile-after.png",
+            "element": "top-3-cards/mobile-after-element.png",
+            "selectorFound": true,
+            "elementRect": {
+              "x": 8,
+              "y": 0,
+              "w": 1027,
+              "h": 88
+            },
+            "video": "top-3-cards/mobile-after.webm"
+          },
+          "boxes": "top-3-cards/mobile-boxes.json",
+          "boxesCount": 20,
+          "errors": [],
+          "timings": {
+            "beforeStillsMs": 2071,
+            "afterStillsMs": 1910,
+            "beforeVideoMs": 4274,
+            "afterVideoMs": 4666,
+            "boxesMs": 1771,
+            "totalMs": 14693
+          }
+        },
+        "desktop": {
+          "size": {
+            "width": 1440,
+            "height": 900
+          },
+          "page": "index.html",
+          "pageExists": {
+            "before": true,
+            "after": true
+          },
+          "before": {
+            "screenshot": "top-3-cards/desktop-before.png",
+            "element": "top-3-cards/desktop-before-element.png",
+            "selectorFound": true,
+            "elementRect": {
+              "x": 16,
+              "y": 0,
+              "w": 216,
+              "h": 89
+            },
+            "video": "top-3-cards/desktop-before.webm"
+          },
+          "after": {
+            "screenshot": "top-3-cards/desktop-after.png",
+            "element": "top-3-cards/desktop-after-element.png",
+            "selectorFound": true,
+            "elementRect": {
+              "x": 16,
+              "y": 0,
+              "w": 969,
+              "h": 88
+            },
+            "video": "top-3-cards/desktop-after.webm"
+          },
+          "boxes": "top-3-cards/desktop-boxes.json",
+          "boxesCount": 20,
+          "errors": [],
+          "timings": {
+            "beforeStillsMs": 2015,
+            "afterStillsMs": 1919,
+            "beforeVideoMs": 4408,
+            "afterVideoMs": 4273,
+            "boxesMs": 1695,
+            "totalMs": 14311
+          }
+        }
+      },
+      "timings": {
+        "totalMs": 29006
+      }
+    },
+    {
+      "id": "best-odds-action",
+      "title": "Best odds action on each game",
+      "dir": "best-odds-action",
+      "beforeSelector": ".r-lltvgl [tabindex=\"0\"]",
+      "afterSelector": "#live-scoreboard .sb-game",
+      "changedFiles": [
+        "scoreboard/scoreboard.js",
+        "scoreboard/scoreboard.css"
+      ],
+      "changedFilesMissing": [],
+      "viewports": {
+        "mobile": {
+          "size": {
+            "width": 390,
+            "height": 844
+          },
+          "page": "index.mobile.html",
+          "pageExists": {
+            "before": true,
+            "after": true
+          },
+          "before": {
+            "screenshot": "best-odds-action/mobile-before.png",
+            "element": "best-odds-action/mobile-before-element.png",
+            "selectorFound": true,
+            "elementRect": {
+              "x": 16,
+              "y": 0,
+              "w": 216,
+              "h": 89
+            },
+            "video": "best-odds-action/mobile-before.webm"
+          },
+          "after": {
+            "screenshot": "best-odds-action/mobile-after.png",
+            "element": "best-odds-action/mobile-after-element.png",
+            "selectorFound": true,
+            "elementRect": {
+              "x": 76,
+              "y": 8,
+              "w": 310,
+              "h": 72
+            },
+            "video": "best-odds-action/mobile-after.webm"
+          },
+          "boxes": "best-odds-action/mobile-boxes.json",
+          "boxesCount": 6,
+          "errors": [],
+          "timings": {
+            "beforeStillsMs": 1966,
+            "afterStillsMs": 2026,
+            "beforeVideoMs": 4281,
+            "afterVideoMs": 4181,
+            "boxesMs": 1755,
+            "totalMs": 14209
+          }
+        },
+        "desktop": {
+          "size": {
+            "width": 1440,
+            "height": 900
+          },
+          "page": "index.html",
+          "pageExists": {
+            "before": true,
+            "after": true
+          },
+          "before": {
+            "screenshot": "best-odds-action/desktop-before.png",
+            "element": "best-odds-action/desktop-before-element.png",
+            "selectorFound": true,
+            "elementRect": {
+              "x": 16,
+              "y": 0,
+              "w": 216,
+              "h": 89
+            },
+            "video": "best-odds-action/desktop-before.webm"
+          },
+          "after": {
+            "screenshot": "best-odds-action/desktop-after.png",
+            "element": "best-odds-action/desktop-after-element.png",
+            "selectorFound": true,
+            "elementRect": {
+              "x": 100,
+              "y": 8,
+              "w": 284,
+              "h": 72
+            },
+            "video": "best-odds-action/desktop-after.webm"
+          },
+          "boxes": "best-odds-action/desktop-boxes.json",
+          "boxesCount": 6,
+          "errors": [],
+          "timings": {
+            "beforeStillsMs": 1961,
+            "afterStillsMs": 1984,
+            "beforeVideoMs": 4417,
+            "afterVideoMs": 4313,
+            "boxesMs": 1602,
+            "totalMs": 14278
+          }
+        }
+      },
+      "timings": {
+        "totalMs": 28488
+      }
+    }
+  ],
+  "timings": {
+    "totalMs": 87231
+  }
+}
