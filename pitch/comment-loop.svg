@@ -1,0 +1,101 @@
+<svg role="img" style="width:358px;max-width:100%;height:auto"
+ viewBox="0.00 0.00 358.00 610.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(8.64 601.44)">
+<title>G</title>
+<g id="node1" class="node">
+<title>agent</title>
+<path fill="#fcfbf8" stroke="#c9c4b8" d="M226.24,-592.8C226.24,-592.8 110.01,-592.8 110.01,-592.8 104.01,-592.8 98.01,-586.8 98.01,-580.8 98.01,-580.8 98.01,-564.48 98.01,-564.48 98.01,-558.48 104.01,-552.48 110.01,-552.48 110.01,-552.48 226.24,-552.48 226.24,-552.48 232.24,-552.48 238.24,-558.48 238.24,-564.48 238.24,-564.48 238.24,-580.8 238.24,-580.8 238.24,-586.8 232.24,-592.8 226.24,-592.8"/>
+<text xml:space="preserve" text-anchor="middle" x="168.12" y="-576.24" font-family="Helvetica,sans-Serif" font-size="12.00" fill="#1f1e1c">Agent ports the winner</text>
+<text xml:space="preserve" text-anchor="middle" x="168.12" y="-561.84" font-family="Helvetica,sans-Serif" font-size="12.00" fill="#1f1e1c">into its theme copy</text>
+</g>
+<g id="node2" class="node">
+<title>evidence</title>
+<path fill="#fcfbf8" stroke="#c9c4b8" d="M175.9,-499.28C175.9,-499.28 42.34,-499.28 42.34,-499.28 36.34,-499.28 30.34,-493.28 30.34,-487.28 30.34,-487.28 30.34,-470.96 30.34,-470.96 30.34,-464.96 36.34,-458.96 42.34,-458.96 42.34,-458.96 175.9,-458.96 175.9,-458.96 181.9,-458.96 187.9,-464.96 187.9,-470.96 187.9,-470.96 187.9,-487.28 187.9,-487.28 187.9,-493.28 181.9,-499.28 175.9,-499.28"/>
+<text xml:space="preserve" text-anchor="middle" x="109.12" y="-482.72" font-family="Helvetica,sans-Serif" font-size="12.00" fill="#1f1e1c">Per feature: screenshot,</text>
+<text xml:space="preserve" text-anchor="middle" x="109.12" y="-468.32" font-family="Helvetica,sans-Serif" font-size="12.00" fill="#1f1e1c">video, live, both viewports</text>
+</g>
+<g id="edge1" class="edge">
+<title>agent&#45;&gt;evidence</title>
+<path fill="none" stroke="#57534c" d="M155.61,-552.23C147.01,-538.88 135.48,-521 126.05,-506.38"/>
+<polygon fill="#57534c" stroke="#57534c" points="128.29,-505.33 122.44,-500.77 124.17,-507.98 128.29,-505.33"/>
+<text xml:space="preserve" text-anchor="middle" x="163.25" y="-522.58" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#57534c">captures</text>
+</g>
+<g id="node3" class="node">
+<title>reviewer</title>
+<path fill="#fcfbf8" stroke="#4a5a2b" stroke-width="1.6" d="M164.57,-405.76C164.57,-405.76 51.67,-405.76 51.67,-405.76 45.67,-405.76 39.67,-399.76 39.67,-393.76 39.67,-393.76 39.67,-377.44 39.67,-377.44 39.67,-371.44 45.67,-365.44 51.67,-365.44 51.67,-365.44 164.57,-365.44 164.57,-365.44 170.57,-365.44 176.57,-371.44 176.57,-377.44 176.57,-377.44 176.57,-393.76 176.57,-393.76 176.57,-399.76 170.57,-405.76 164.57,-405.76"/>
+<text xml:space="preserve" text-anchor="middle" x="108.12" y="-389.2" font-family="Helvetica,sans-Serif" font-size="12.00" fill="#1f1e1c">Reviewer: comment</text>
+<text xml:space="preserve" text-anchor="middle" x="108.12" y="-374.8" font-family="Helvetica,sans-Serif" font-size="12.00" fill="#1f1e1c">anywhere, per feature</text>
+</g>
+<g id="edge2" class="edge">
+<title>evidence&#45;&gt;reviewer</title>
+<path fill="none" stroke="#57534c" d="M108.91,-458.71C108.77,-445.94 108.59,-429 108.43,-414.76"/>
+<polygon fill="#57534c" stroke="#57534c" points="110.88,-414.78 108.35,-407.81 105.98,-414.84 110.88,-414.78"/>
+<text xml:space="preserve" text-anchor="middle" x="124.27" y="-429.06" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#57534c">shows</text>
+</g>
+<g id="node4" class="node">
+<title>submit</title>
+<path fill="#fcfbf8" stroke="#c9c4b8" d="M143.88,-312.24C143.88,-312.24 72.36,-312.24 72.36,-312.24 66.36,-312.24 60.36,-306.24 60.36,-300.24 60.36,-300.24 60.36,-288.24 60.36,-288.24 60.36,-282.24 66.36,-276.24 72.36,-276.24 72.36,-276.24 143.88,-276.24 143.88,-276.24 149.88,-276.24 155.88,-282.24 155.88,-288.24 155.88,-288.24 155.88,-300.24 155.88,-300.24 155.88,-306.24 149.88,-312.24 143.88,-312.24"/>
+<text xml:space="preserve" text-anchor="middle" x="108.12" y="-290.64" font-family="Helvetica,sans-Serif" font-size="12.00" fill="#1f1e1c">Submit review</text>
+</g>
+<g id="edge3" class="edge">
+<title>reviewer&#45;&gt;submit</title>
+<path fill="none" stroke="#57534c" d="M108.12,-364.77C108.12,-351.82 108.12,-334.8 108.12,-320.84"/>
+<polygon fill="#57534c" stroke="#57534c" points="110.57,-321.12 108.12,-314.12 105.67,-321.12 110.57,-321.12"/>
+<text xml:space="preserve" text-anchor="middle" x="138.08" y="-335.54" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#57534c">n comments</text>
+</g>
+<g id="node5" class="node">
+<title>comments</title>
+<path fill="#fcfbf8" stroke="#c9c4b8" d="M128.23,-223.04C128.23,-223.04 28.01,-223.04 28.01,-223.04 22.01,-223.04 16.01,-217.04 16.01,-211.04 16.01,-211.04 16.01,-194.72 16.01,-194.72 16.01,-188.72 22.01,-182.72 28.01,-182.72 28.01,-182.72 128.23,-182.72 128.23,-182.72 134.23,-182.72 140.23,-188.72 140.23,-194.72 140.23,-194.72 140.23,-211.04 140.23,-211.04 140.23,-217.04 134.23,-223.04 128.23,-223.04"/>
+<text xml:space="preserve" text-anchor="middle" x="78.12" y="-206.48" font-family="Helvetica,sans-Serif" font-size="12.00" fill="#1f1e1c">Comments only:</text>
+<text xml:space="preserve" text-anchor="middle" x="78.12" y="-192.08" font-family="Helvetica,sans-Serif" font-size="12.00" fill="#1f1e1c">recorded on the PR</text>
+</g>
+<g id="edge4" class="edge">
+<title>submit&#45;&gt;comments</title>
+<path fill="none" stroke="#57534c" d="M102.34,-276.01C98.06,-263.26 92.14,-245.64 87.23,-231"/>
+<polygon fill="#57534c" stroke="#57534c" points="89.65,-230.52 85.1,-224.66 85,-232.08 89.65,-230.52"/>
+<text xml:space="preserve" text-anchor="middle" x="108.07" y="-246.34" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#57534c">leave</text>
+</g>
+<g id="node6" class="node">
+<title>fix</title>
+<path fill="#fcfbf8" stroke="#c9c4b8" d="M275.23,-220.88C275.23,-220.88 177.01,-220.88 177.01,-220.88 171.01,-220.88 165.01,-214.88 165.01,-208.88 165.01,-208.88 165.01,-196.88 165.01,-196.88 165.01,-190.88 171.01,-184.88 177.01,-184.88 177.01,-184.88 275.23,-184.88 275.23,-184.88 281.23,-184.88 287.23,-190.88 287.23,-196.88 287.23,-196.88 287.23,-208.88 287.23,-208.88 287.23,-214.88 281.23,-220.88 275.23,-220.88"/>
+<text xml:space="preserve" text-anchor="middle" x="226.12" y="-199.28" font-family="Helvetica,sans-Serif" font-size="12.00" fill="#1f1e1c">Ask the agent to fix</text>
+</g>
+<g id="edge5" class="edge">
+<title>submit&#45;&gt;fix</title>
+<path fill="none" stroke="#57534c" d="M131.15,-275.8C149.83,-261.65 176.29,-241.61 196.54,-226.28"/>
+<polygon fill="#57534c" stroke="#57534c" points="197.84,-228.37 201.94,-222.19 194.88,-224.46 197.84,-228.37"/>
+<text xml:space="preserve" text-anchor="middle" x="179.69" y="-246.34" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#57534c">fix</text>
+</g>
+<g id="node7" class="node">
+<title>gate</title>
+<path fill="#fcfbf8" stroke="#c9c4b8" d="M144.24,-129.52C144.24,-129.52 12,-129.52 12,-129.52 6,-129.52 0,-123.52 0,-117.52 0,-117.52 0,-101.2 0,-101.2 0,-95.2 6,-89.2 12,-89.2 12,-89.2 144.24,-89.2 144.24,-89.2 150.24,-89.2 156.24,-95.2 156.24,-101.2 156.24,-101.2 156.24,-117.52 156.24,-117.52 156.24,-123.52 150.24,-129.52 144.24,-129.52"/>
+<text xml:space="preserve" text-anchor="middle" x="78.12" y="-112.96" font-family="Helvetica,sans-Serif" font-size="12.00" fill="#1f1e1c">Publish gate: every item</text>
+<text xml:space="preserve" text-anchor="middle" x="78.12" y="-98.56" font-family="Helvetica,sans-Serif" font-size="12.00" fill="#1f1e1c">approved, checks passed</text>
+</g>
+<g id="edge7" class="edge">
+<title>comments&#45;&gt;gate</title>
+<path fill="none" stroke="#57534c" d="M78.12,-182.47C78.12,-169.61 78.12,-152.53 78.12,-138.23"/>
+<polygon fill="#57534c" stroke="#57534c" points="80.57,-138.25 78.12,-131.25 75.67,-138.25 80.57,-138.25"/>
+<text xml:space="preserve" text-anchor="middle" x="112.67" y="-152.82" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#57534c">approve items</text>
+</g>
+<g id="edge6" class="edge">
+<title>fix&#45;&gt;agent</title>
+<path fill="none" stroke="#57534c" d="M226.12,-221.35C226.12,-239.36 226.12,-268.26 226.12,-293.24 226.12,-480.12 226.12,-480.12 226.12,-480.12 226.12,-505.25 210.33,-529.08 195.22,-546.11"/>
+<polygon fill="#57534c" stroke="#57534c" points="193.69,-544.16 190.75,-550.96 197.29,-547.48 193.69,-544.16"/>
+<text xml:space="preserve" text-anchor="middle" x="283.44" y="-388.9" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#57534c">comment + code line</text>
+<text xml:space="preserve" text-anchor="middle" x="283.44" y="-375.7" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#57534c">+ viewport, as a prompt</text>
+</g>
+<g id="node8" class="node">
+<title>live</title>
+<path fill="#fcfbf8" stroke="#c9c4b8" d="M105.55,-36C105.55,-36 50.69,-36 50.69,-36 44.69,-36 38.69,-30 38.69,-24 38.69,-24 38.69,-12 38.69,-12 38.69,-6 44.69,0 50.69,0 50.69,0 105.55,0 105.55,0 111.55,0 117.55,-6 117.55,-12 117.55,-12 117.55,-24 117.55,-24 117.55,-30 111.55,-36 105.55,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="78.12" y="-14.4" font-family="Helvetica,sans-Serif" font-size="12.00" fill="#1f1e1c">Live theme</text>
+</g>
+<g id="edge8" class="edge">
+<title>gate&#45;&gt;live</title>
+<path fill="none" stroke="#57534c" d="M78.12,-88.97C78.12,-75.96 78.12,-58.69 78.12,-44.56"/>
+<polygon fill="#57534c" stroke="#57534c" points="80.57,-44.75 78.12,-37.75 75.67,-44.75 80.57,-44.75"/>
+<text xml:space="preserve" text-anchor="middle" x="95.55" y="-59.3" font-family="Helvetica,sans-Serif" font-size="11.00" fill="#57534c">publish</text>
+</g>
+</g>
+</svg>
+
