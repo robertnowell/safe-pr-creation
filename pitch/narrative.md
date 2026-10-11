@@ -1,7 +1,6 @@
 # How you make a pull request safe to review
 
-Worked example throughout: the wholesale-page test, the a fragrance retailer wholesale page rebuild, promoted to the
-test store the test store on 9 Oct 2026. Mock of the reviewer: `reviewer-mock.html`.
+Worked example throughout: a fragrance retailer's wholesale-page test, promoted to its test store on 9 Oct 2026.
 
 ## 1. Goal, in plain English, under ten words
 
@@ -22,7 +21,7 @@ winner lives in `sections/*.liquid` and the script is off for that test.
 | Risk | Seen | Gate that catches it |
 |---|---|---|
 | Publishing a copied theme renumbers every section id; running Coframe tests that target those ids go dark | the test store, 9 Oct: 8 of 8 page types changed | Collision check before publish: no running test pins a numbered id |
-| The "after" screenshot shows Coframe's served variation, not the port (the script runs on the preview too) | the wholesale-page test rehearsal | Capture with `cf_disable=true`; the check fails closed if not reported |
+| The "after" screenshot shows Coframe's served variation, not the port (the script runs on the preview too) | the promotion rehearsal | Capture with `cf_disable=true`; the check fails closed if not reported |
 | Cart or checkout stops loading | QA scope: never submit an order | Cart and checkout pages load; nothing ordered |
 | The agent touches files outside the task | Scope rule in CROBOT.md | Only this task's files pushed; per-file checksums |
 | Someone edits the live theme between review and publish | Drift warning exists today | Checksums bound to the review; a push after approval asks again |

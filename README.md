@@ -23,7 +23,7 @@ scoreboard, never the training reward.
 |---|------|-------------------|------------------|
 | 1 | Surge | One billion commits in 2025; fourteen billion at this year's pace (275M/week × 52, linear; Daigle says it won't hold). Tens of billions of lines nobody read. | Kyle Daigle (GitHub COO) on X, 3 Apr 2026; two-bar chart |
 | 2 | Bottleneck | The PR screen has not changed, and a merge is mostly about the reviewer: the diff alone predicts acceptance at AUC 0.61–0.68; review activity takes it to 0.94. | A real PR files tab (Shopify/dawn #3946); arXiv 2607.12057, Dey & Mockus |
-| 3 | Insight | When the PR ports a winning A/B test, the target is known. A non-engineer can judge fidelity; a machine can score it. | the wholesale-page test winner vs port screenshot pair; 32,049 archived variants |
+| 3 | Insight | When the PR ports a winning A/B test, the target is known. A non-engineer can judge fidelity; a machine can score it. | winner vs port screenshot pair; 32,049 archived variants |
 | 4 | Product | Guided review with a feedback cycle: one item per visible change, expectation first, evidence on request, verdict per item; a flag is a prompt; the agent resubmits. | Review card on crobot branch shopify-store-review; 1,091 tests green |
 | 5 | Safely | Gates own technical safety and fail closed; publishing refuses (409) until every item is approved and files are unchanged. The rehearsal found the hazard: publishing moves every section id. | 8 of 8 ids moved on the test store, 9 Oct |
 | 6 | Volume | 442 wins in nine months across 82 customer orgs, 30/month on Shopify. Promotion in onboarding makes merge rate a monthly scoreboard. | Jarvis counts, 10 Oct; sample-size table |
@@ -35,7 +35,7 @@ scoreboard, never the training reward.
 - That the agent learns from merges (one delayed bit per PR, mostly about the reviewer).
 - That weights train this quarter (zero reviewed promotions recorded yet).
 - That Jarvis and crobot are joined (API keys cannot create pins; the join is proposed).
-- That anything went live on a fragrance retailer (test store only).
+- That anything went live on a customer store (test store only).
 
 ## Sources for the opening numbers
 
