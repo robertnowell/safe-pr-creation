@@ -14,18 +14,17 @@
   }
  },
  "goal": {
-  "text": "Top three live games per sport, each with a trade.",
-  "why": "From the winning A/B test on the home page: a per-sport board with one action per game beat the flat strip of twenty games."
+  "text": "Promote the test: top three live games per sport, each with a Trade button.",
+  "why": "The test won on the home page. This PR puts the winning layout into the site code."
  },
  "architecture": {
   "svg": "<svg role=\"img\" style=\"width:480px;max-width:100%;height:auto\"\n viewBox=\"0.00 0.00 480.00 245.00\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n<g id=\"graph0\" class=\"graph\" transform=\"scale(1 1) rotate(0) translate(8.64 236)\">\n<title>G</title>\n<g id=\"node1\" class=\"node\">\n<title>fan</title>\n<path fill=\"#fcfbf8\" stroke=\"#c9c4b8\" d=\"M132.88,-225.2C132.88,-225.2 41.33,-225.2 41.33,-225.2 35.33,-225.2 29.33,-219.2 29.33,-213.2 29.33,-213.2 29.33,-201.2 29.33,-201.2 29.33,-195.2 35.33,-189.2 41.33,-189.2 41.33,-189.2 132.88,-189.2 132.88,-189.2 138.88,-189.2 144.88,-195.2 144.88,-201.2 144.88,-201.2 144.88,-213.2 144.88,-213.2 144.88,-219.2 138.88,-225.2 132.88,-225.2\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"87.11\" y=\"-203.6\" font-family=\"Helvetica,sans-Serif\" font-size=\"12.00\" fill=\"#1f1e1c\">Fan on novig.com</text>\n</g>\n<g id=\"node2\" class=\"node\">\n<title>home</title>\n<path fill=\"#fcfbf8\" stroke=\"#c9c4b8\" d=\"M116.2,-131.68C116.2,-131.68 58.01,-131.68 58.01,-131.68 52.01,-131.68 46.01,-125.68 46.01,-119.68 46.01,-119.68 46.01,-107.68 46.01,-107.68 46.01,-101.68 52.01,-95.68 58.01,-95.68 58.01,-95.68 116.2,-95.68 116.2,-95.68 122.2,-95.68 128.2,-101.68 128.2,-107.68 128.2,-107.68 128.2,-119.68 128.2,-119.68 128.2,-125.68 122.2,-131.68 116.2,-131.68\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"87.11\" y=\"-110.08\" font-family=\"Helvetica,sans-Serif\" font-size=\"12.00\" fill=\"#1f1e1c\">Home page</text>\n</g>\n<g id=\"edge1\" class=\"edge\">\n<title>fan&#45;&gt;home</title>\n<path fill=\"none\" stroke=\"#57534c\" d=\"M87.11,-188.99C87.11,-175.27 87.11,-155.85 87.11,-140.31\"/>\n<polygon fill=\"#57534c\" stroke=\"#57534c\" points=\"89.56,-140.64 87.11,-133.64 84.66,-140.64 89.56,-140.64\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"102.09\" y=\"-157.14\" font-family=\"Helvetica,sans-Serif\" font-size=\"11.00\" fill=\"#57534c\">opens</text>\n</g>\n<g id=\"node3\" class=\"node\">\n<title>strip</title>\n<path fill=\"#fcfbf8\" stroke=\"#a8762a\" stroke-width=\"1.6\" d=\"M106.21,-40.32C106.21,-40.32 12,-40.32 12,-40.32 6,-40.32 0,-34.32 0,-28.32 0,-28.32 0,-12 0,-12 0,-6 6,0 12,0 12,0 106.21,0 106.21,0 112.21,0 118.21,-6 118.21,-12 118.21,-12 118.21,-28.32 118.21,-28.32 118.21,-34.32 112.21,-40.32 106.21,-40.32\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"59.11\" y=\"-23.76\" font-family=\"Helvetica,sans-Serif\" font-size=\"12.00\" fill=\"#1f1e1c\">Before: live strip,</text>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"59.11\" y=\"-9.36\" font-family=\"Helvetica,sans-Serif\" font-size=\"12.00\" fill=\"#1f1e1c\">20 games in a row</text>\n</g>\n<g id=\"edge2\" class=\"edge\">\n<title>home&#45;&gt;strip</title>\n<path fill=\"none\" stroke=\"#57534c\" d=\"M70.4,-95.37C65.34,-89 60.44,-81.42 57.81,-73.52 55.28,-65.92 54.64,-57.34 54.9,-49.37\"/>\n<polygon fill=\"#57534c\" stroke=\"#57534c\" points=\"57.33,-49.69 55.38,-42.53 52.45,-49.35 57.33,-49.69\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"76.46\" y=\"-63.62\" font-family=\"Helvetica,sans-Serif\" font-size=\"11.00\" fill=\"#57534c\">renders</text>\n</g>\n<g id=\"node4\" class=\"node\">\n<title>board</title>\n<path fill=\"#fcfbf8\" stroke=\"#4a5a2b\" stroke-width=\"1.6\" d=\"M286.21,-40.32C286.21,-40.32 178,-40.32 178,-40.32 172,-40.32 166,-34.32 166,-28.32 166,-28.32 166,-12 166,-12 166,-6 172,0 178,0 178,0 286.21,0 286.21,0 292.21,0 298.21,-6 298.21,-12 298.21,-12 298.21,-28.32 298.21,-28.32 298.21,-34.32 292.21,-40.32 286.21,-40.32\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"232.11\" y=\"-23.76\" font-family=\"Helvetica,sans-Serif\" font-size=\"12.00\" fill=\"#1f1e1c\">After: board by sport,</text>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"232.11\" y=\"-9.36\" font-family=\"Helvetica,sans-Serif\" font-size=\"12.00\" fill=\"#1f1e1c\">top 3 per sport</text>\n</g>\n<g id=\"edge3\" class=\"edge\">\n<title>home&#45;&gt;board</title>\n<path fill=\"none\" stroke=\"#57534c\" d=\"M105.17,-95.3C117.08,-84.4 133.37,-70.54 149.28,-60.32 157.94,-54.76 167.51,-49.51 176.99,-44.77\"/>\n<polygon fill=\"#57534c\" stroke=\"#57534c\" points=\"177.97,-47.01 183.18,-41.74 175.82,-42.61 177.97,-47.01\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"187.19\" y=\"-63.62\" font-family=\"Helvetica,sans-Serif\" font-size=\"11.00\" fill=\"#57534c\">renders instead</text>\n</g>\n<g id=\"node5\" class=\"node\">\n<title>games</title>\n<path fill=\"#fcfbf8\" stroke=\"#c9c4b8\" d=\"M271.2,-133.84C271.2,-133.84 193.01,-133.84 193.01,-133.84 187.01,-133.84 181.01,-127.84 181.01,-121.84 181.01,-121.84 181.01,-105.52 181.01,-105.52 181.01,-99.52 187.01,-93.52 193.01,-93.52 193.01,-93.52 271.2,-93.52 271.2,-93.52 277.2,-93.52 283.2,-99.52 283.2,-105.52 283.2,-105.52 283.2,-121.84 283.2,-121.84 283.2,-127.84 277.2,-133.84 271.2,-133.84\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"232.11\" y=\"-117.28\" font-family=\"Helvetica,sans-Serif\" font-size=\"12.00\" fill=\"#1f1e1c\">games.js</text>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"232.11\" y=\"-102.88\" font-family=\"Helvetica,sans-Serif\" font-size=\"12.00\" fill=\"#1f1e1c\">(20 live games)</text>\n</g>\n<g id=\"edge4\" class=\"edge\">\n<title>games&#45;&gt;board</title>\n<path fill=\"none\" stroke=\"#57534c\" d=\"M231.34,-93.16C231.13,-86.89 230.93,-79.91 230.83,-73.52 230.7,-65.73 230.8,-57.28 230.99,-49.49\"/>\n<polygon fill=\"#57534c\" stroke=\"#57534c\" points=\"233.44,-49.63 231.19,-42.56 228.54,-49.49 233.44,-49.63\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"280.97\" y=\"-63.62\" font-family=\"Helvetica,sans-Serif\" font-size=\"11.00\" fill=\"#57534c\">ranked by closeness</text>\n</g>\n<g id=\"node6\" class=\"node\">\n<title>odds</title>\n<path fill=\"#fcfbf8\" stroke=\"#c9c4b8\" d=\"M399.54,-133.84C399.54,-133.84 324.67,-133.84 324.67,-133.84 318.67,-133.84 312.67,-127.84 312.67,-121.84 312.67,-121.84 312.67,-105.52 312.67,-105.52 312.67,-99.52 318.67,-93.52 324.67,-93.52 324.67,-93.52 399.54,-93.52 399.54,-93.52 405.54,-93.52 411.54,-99.52 411.54,-105.52 411.54,-105.52 411.54,-121.84 411.54,-121.84 411.54,-127.84 405.54,-133.84 399.54,-133.84\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"362.11\" y=\"-117.28\" font-family=\"Helvetica,sans-Serif\" font-size=\"12.00\" fill=\"#1f1e1c\">suggestOdds()</text>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"362.11\" y=\"-102.88\" font-family=\"Helvetica,sans-Serif\" font-size=\"12.00\" fill=\"#1f1e1c\">placeholder</text>\n</g>\n<g id=\"edge5\" class=\"edge\">\n<title>odds&#45;&gt;board</title>\n<path fill=\"none\" stroke=\"#57534c\" d=\"M355.12,-93.06C350.38,-82.15 343.13,-69.06 333.11,-60.32 325.2,-53.42 315.95,-47.67 306.3,-42.9\"/>\n<polygon fill=\"#57534c\" stroke=\"#57534c\" points=\"307.62,-40.81 300.24,-40.07 305.55,-45.25 307.62,-40.81\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"388.76\" y=\"-63.62\" font-family=\"Helvetica,sans-Serif\" font-size=\"11.00\" fill=\"#57534c\">Best odds \u00b7 Trade</text>\n</g>\n<g id=\"node7\" class=\"node\">\n<title>book</title>\n<path fill=\"#fcfbf8\" stroke=\"#c9c4b8\" d=\"M401.54,-227.36C401.54,-227.36 322.67,-227.36 322.67,-227.36 316.67,-227.36 310.67,-221.36 310.67,-215.36 310.67,-215.36 310.67,-199.04 310.67,-199.04 310.67,-193.04 316.67,-187.04 322.67,-187.04 322.67,-187.04 401.54,-187.04 401.54,-187.04 407.54,-187.04 413.54,-193.04 413.54,-199.04 413.54,-199.04 413.54,-215.36 413.54,-215.36 413.54,-221.36 407.54,-227.36 401.54,-227.36\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"362.11\" y=\"-210.8\" font-family=\"Helvetica,sans-Serif\" font-size=\"12.00\" fill=\"#1f1e1c\">Order book API</text>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"362.11\" y=\"-196.4\" font-family=\"Helvetica,sans-Serif\" font-size=\"12.00\" fill=\"#1f1e1c\">(not wired)</text>\n</g>\n<g id=\"edge6\" class=\"edge\">\n<title>book&#45;&gt;odds</title>\n<path fill=\"none\" stroke=\"#a8762a\" stroke-width=\"1.6\" d=\"M362.11,-186.79C362.11,-174.17 362.11,-157.5 362.11,-143.36\"/>\n<polygon fill=\"#a8762a\" stroke=\"#a8762a\" stroke-width=\"1.6\" points=\"364.56,-143.48 362.11,-136.48 359.66,-143.48 364.56,-143.48\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"412.54\" y=\"-157.14\" font-family=\"Helvetica,sans-Serif\" font-size=\"11.00\" fill=\"#1f1e1c\">follow&#45;up: real prices</text>\n</g>\n</g>\n</svg>\n\n",
   "before": {
-   "headline": "One strip, twenty games, no action.",
    "nodes": [
     {
      "id": "fan",
      "label": "Fan",
-     "kicker": "Visitor",
+     "kicker": "visitor",
      "x": 0,
      "y": 1
     },
@@ -39,7 +38,7 @@
     {
      "id": "strip",
      "label": "Live strip",
-     "kicker": "20 cards in a row",
+     "kicker": "20 games in a row",
      "x": 2,
      "y": 1,
      "state": "removed"
@@ -47,7 +46,7 @@
     {
      "id": "feed",
      "label": "Live scores",
-     "kicker": "API feed",
+     "kicker": "score feed",
      "x": 2,
      "y": 0
     }
@@ -61,7 +60,7 @@
     [
      "home",
      "strip",
-     "renders"
+     "shows"
     ],
     [
      "feed",
@@ -71,12 +70,11 @@
    ]
   },
   "after": {
-   "headline": "A board by sport, three games, one trade each.",
    "nodes": [
     {
      "id": "fan",
      "label": "Fan",
-     "kicker": "Visitor",
+     "kicker": "visitor",
      "x": 0,
      "y": 1
     },
@@ -90,33 +88,24 @@
     {
      "id": "board",
      "label": "Board by sport",
-     "kicker": "top 3 per sport",
+     "kicker": "3 games per sport",
      "x": 2,
      "y": 1,
-     "state": "new"
+     "state": "changed"
     },
     {
      "id": "feed",
      "label": "Live scores",
-     "kicker": "games.js, 20 games",
+     "kicker": "score feed",
      "x": 2,
-     "y": 0,
-     "state": "changed"
-    },
-    {
-     "id": "odds",
-     "label": "suggestOdds()",
-     "kicker": "placeholder odds",
-     "x": 3,
-     "y": 1,
-     "state": "new"
+     "y": 0
     },
     {
      "id": "book",
      "label": "Order book",
-     "kicker": "not wired yet",
+     "kicker": "real odds",
      "x": 3,
-     "y": 0,
+     "y": 1,
      "state": "planned"
     }
    ],
@@ -129,27 +118,24 @@
     [
      "home",
      "board",
-     "renders"
+     "shows"
     ],
     [
      "feed",
      "board",
-     "ranked by closeness"
-    ],
-    [
-     "odds",
-     "board",
-     "best odds"
+     "every game"
     ],
     [
      "book",
-     "odds",
-     "real prices, later"
+     "board",
+     "later"
     ]
    ]
   },
   "beforeText": "Every live game, in a row, and nothing to do with any of them.",
-  "afterText": "The same slot. Games grouped by sport, the three closest first, and a trade on each. The odds are a placeholder until the order book is wired."
+  "afterText": "The same slot. Games grouped by sport, the three closest first, and a trade on each. The odds are a placeholder until the order book is wired.",
+  "headline": "One layer changed: the live strip on the home page.",
+  "note": "Filled box: the part this PR changes. Dashed box: the part this PR removes. Grey dashed box: a later task."
  },
  "risks": [
   {
@@ -180,90 +166,42 @@
  ],
  "checks": [
   {
-   "check": "Only files under demo/novig/ changed",
-   "who": "Gate",
-   "evidence": "git diff --name-only main..branch",
+   "check": "Only files in the scoreboard folder changed",
    "state": "pass",
-   "detail": "5 files, 0 outside demo/novig/"
+   "detail": "5 files. 0 files outside demo/novig/."
   },
   {
-   "check": "No new console errors on the desktop page",
-   "who": "Gate",
-   "evidence": "Headless Chrome, after vs before",
+   "check": "No new errors in the browser console, desktop",
    "state": "pass",
-   "detail": "after 10 errors, before 14 \u00b7 Failed to load resource: the server responded with a status of 405 ()"
+   "detail": "After: 10 errors. Before: 14 errors. All are blocked network requests."
   },
   {
-   "check": "No new console errors on the mobile page",
-   "who": "Gate",
-   "evidence": "Headless Chrome, after vs before",
+   "check": "No new errors in the browser console, mobile",
    "state": "pass",
-   "detail": "after 12 errors, before 16 \u00b7 Failed to load resource: the server responded with a status of 405 ()"
+   "detail": "After: 12 errors. Before: 16 errors. All are blocked network requests."
   },
   {
-   "check": "The board fits its slot: \u22643 games per sport, a Trade on every card, desktop",
-   "who": "Gate",
-   "evidence": "DOM counts and bounding box at 1440\u00d7900",
+   "check": "The board fits the header on desktop",
    "state": "pass",
-   "detail": "4 sports, max 3 cards per sport, 9/9 cards with a Trade action"
+   "detail": "4 sports. 3 games per sport at most. A Trade button on all 9 games."
   },
   {
-   "check": "Same on mobile",
-   "who": "Gate",
-   "evidence": "DOM counts and bounding box at 390\u00d7844",
+   "check": "The board fits the header on mobile",
    "state": "pass",
-   "detail": "4 sports, max 3 cards per sport, 9/9 cards with a Trade action"
+   "detail": "4 sports. 3 games per sport at most. A Trade button on all 9 games."
   },
   {
-   "check": "The rest of the page below the header looks the same",
-   "who": "Gate",
-   "evidence": "Pixel diff of the region below 95px, desktop",
+   "check": "The page below the header did not change",
    "state": "pass",
-   "detail": "0.00% of pixels below the header differ (threshold 0.5%)"
-  },
-  {
-   "check": "Each feature matches the winning variant at both widths",
-   "who": "Person",
-   "evidence": "Before and after per feature, in the reviewer below",
-   "state": "not_run",
-   "detail": "approve each feature"
-  },
-  {
-   "check": "Trade and View all go where they should",
-   "who": "Person",
-   "evidence": "Live page tab; in this static demo they have no handlers yet",
-   "state": "not_run",
-   "detail": "static demo: buttons have no handlers"
-  },
-  {
-   "check": "The Best odds label is honest about being a suggestion",
-   "who": "Person",
-   "evidence": "The card copy; the PR says the odds are a placeholder",
-   "state": "not_run",
-   "detail": "a person decides"
+   "detail": "0.00% of pixels differ, desktop."
   }
  ],
  "features": [
   {
    "id": "sport-groups",
-   "title": "Games grouped by sport",
+   "title": "The live scoreboard",
    "page": "index.html",
-   "expect": "The top strip is organised by sport: a sport name with how many games are live and a View all link, then its games. CFB first, then Hockey, Pro BB (M), Liga MX.",
-   "found": "Four sport groups render in that order at both widths; the header shows 12 live for CFB and 5 for Hockey, matching the data."
-  },
-  {
-   "id": "top-3-cards",
-   "title": "Top 3 games per sport",
-   "page": "index.html",
-   "expect": "Each sport shows at most three games, the closest scores first, with status, clock, logos, teams and scores as before.",
-   "found": "Three cards per sport where there are three or more; ranking puts CP at IDST 18\u201318 first for CFB. Hockey and NBA teams have no logos in the source data, same as before."
-  },
-  {
-   "id": "best-odds-action",
-   "title": "Best odds action on each game",
-   "page": "index.html",
-   "expect": "Every game card carries a Best odds suggestion (side, implied %, $100 payout) and a blue Trade button, like the odds buttons elsewhere on the page.",
-   "found": "Nine of nine cards carry the action. The odds are placeholders from the score gap, not the order book; on mobile the card widens to 290px so the side name is not truncated."
+   "full": true
   }
  ],
  "why": {
@@ -278,5 +216,11 @@
    "Scoreboard"
   ]
  },
- "footer": "Generated by the safe-pr-review skill for robertnowell/safe-pr-creation PR #1 on 10 Oct 2026. Before = main (Novig home frozen 17:11 PT); after = branch novig/scoreboard-by-sport. Evidence captured with Playwright on this Mac; gates ran the same evening."
+ "footer": "PR review for robertnowell/safe-pr-creation #1, 10 Oct 2026. Before = main. After = branch novig/scoreboard-by-sport. Evidence captured with Playwright.",
+ "changes": [
+  "Before: the top strip shows 20 live games in one row. A game has no button.",
+  "After: the strip shows games by sport. Each sport shows its three closest games. Each game shows a Best odds line and a Trade button.",
+  "The odds on the Trade button are a placeholder. They come from the score gap, not from the order book. The order book connection is a later task.",
+  "Five files changed. The old strip markup is removed (2,386 lines). The new board is 3 files (370 lines)."
+ ]
 }

@@ -19,7 +19,7 @@ const features = review.features.map((f) => {
     const boxes = v.boxes ? JSON.parse(fs.readFileSync(path.join(evDir, v.boxes), 'utf8')) : [];
     const pick = (side) => {
       // a feature that is a small part of the page is shown as its crop (element box + 12px, as capture.mjs cut it); otherwise the viewport shot
-      const r = side.elementRect; const small = side.element && r && r.h < v.size.height * 0.45;
+      const r = side.elementRect; const small = !f.full && side.element && r && r.h < v.size.height * 0.45;
       if (small) { const x0 = Math.max(0, r.x - 12), y0 = Math.max(0, r.y - 12); return { screenshot: 'evidence/' + side.element, screenshotSize: sizeOf(path.join(evDir, side.element)), offset: { x: x0, y: y0 } }; }
       return { screenshot: side.screenshot && 'evidence/' + side.screenshot, screenshotSize: side.screenshot ? sizeOf(path.join(evDir, side.screenshot)) : null };
     };
@@ -30,7 +30,7 @@ const features = review.features.map((f) => {
   return { ...f, viewports };
 });
 const data = { ...review, features, generatedAt: new Date().toISOString() };
-const tplName = process.env.SPR_TEMPLATE || 'template-deck.html';
+const tplName = process.env.SPR_TEMPLATE || 'template-page.html';
 const fonts = fs.existsSync(path.join(here, 'fonts.css')) ? fs.readFileSync(path.join(here, 'fonts.css'), 'utf8') : '';
 const tpl = fs.readFileSync(path.join(here, tplName), 'utf8').replace('/*FONTS*/', fonts);
 fs.writeFileSync(path.join(outDir, 'index.html'), tpl.replace('/*DATA*/', JSON.stringify(data).replace(/<\//g, '<\\/')));
