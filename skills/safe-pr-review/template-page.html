@@ -3,130 +3,128 @@
 <title>PR review</title>
 <style>
 /*FONTS*/
-:root{--bg:#F7F8FB;--ink:#1F212F;--muted:rgba(31,33,47,.7);--faint:rgba(31,33,47,.45);--border:#DDE2EB;--border2:#EEF0F5;--dark:#0F111E}
-*{box-sizing:border-box}html{background:var(--bg)}body{margin:0;font-family:'NB International Pro',ui-sans-serif,system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;font-size:17px;line-height:1.5}
-.mono{font-family:'Basis Grotesque Mono Pro',ui-monospace,Menlo,monospace}
+:root{--bg:#F7F8FB;--ink:#1F212F;--muted:rgba(31,33,47,.62);--faint:rgba(31,33,47,.4);--border:#DDE2EB;--border2:#EEF0F5;--dark:#0F111E}
+*{box-sizing:border-box}html{background:var(--bg);scroll-behavior:smooth}body{margin:0;font-family:'NB International Pro',ui-sans-serif,system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;font-size:19px;line-height:1.5}
 .display{font-family:'Amina','NB International Pro',sans-serif;font-weight:500;letter-spacing:-.03em;line-height:1.02;text-wrap:balance}
-.top{display:flex;justify-content:space-between;padding:22px clamp(24px,5vw,80px);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
-main{padding:0 clamp(24px,5vw,80px) 120px;max-width:1600px;margin:0 auto}
-section{padding:40px 0 24px;border-top:1px solid var(--border)}section:first-of-type{border-top:0;padding-top:30px}
-.kick{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:14px}
-h1{font-size:clamp(40px,5.2vw,84px);margin:0 0 18px;max-width:18ch}
-h2{font-size:clamp(28px,3vw,44px);margin:0 0 14px}
-p{margin:0 0 10px;max-width:70ch}p.big{font-size:clamp(18px,1.5vw,24px);line-height:1.4}
-.meta{font-size:12.5px;color:var(--faint);letter-spacing:.03em}
-ul.plain{margin:0;padding:0;list-style:none;max-width:70ch}ul.plain li{padding:10px 0;border-top:1px solid var(--border2);font-size:clamp(16px,1.2vw,19px)}ul.plain li:first-child{border-top:0}
-/* architecture: before and after on one row */
-.arch{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:8px}
-.archcol{background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px 20px}
-.archcol .lab{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:10px}
-.archcol svg{width:100%;height:auto;overflow:visible}
-.node{fill:#fff;stroke:var(--border);stroke-width:1.5}.node.changed{fill:var(--ink);stroke:var(--ink)}.node.removed{fill:#fff;stroke:var(--ink);stroke-width:1.5;stroke-dasharray:6 5}.node.planned{fill:transparent;stroke:#B9C0CE;stroke-dasharray:6 5}
-.nl{font-family:'NB International Pro',sans-serif;font-size:18px;fill:var(--ink);font-weight:500}.nk{font-family:'Basis Grotesque Mono Pro',monospace;font-size:10.5px;letter-spacing:.08em;fill:var(--faint)}
-.changed .nl{fill:#fff}.changed .nk{fill:rgba(255,255,255,.7)}.planned .nl{fill:var(--faint)}
-.el{font-family:'Basis Grotesque Mono Pro',monospace;font-size:10.5px;letter-spacing:.06em;fill:var(--faint)}
+main{padding:56px clamp(24px,5vw,80px) 140px;max-width:1600px;margin:0 auto}
+section{padding:56px 0 8px}section+section{border-top:1px solid var(--border)}
+h1{font-size:clamp(48px,6vw,104px);margin:0 0 28px;max-width:17ch}
+h2{font-size:clamp(34px,3.6vw,56px);margin:0 0 22px}
+h3{font-size:clamp(22px,2vw,30px);margin:0 0 14px;font-weight:500}
+p{margin:0 0 12px;max-width:62ch}p.lead{font-size:clamp(22px,1.9vw,30px);line-height:1.35;max-width:40ch}
+p.small{font-size:16px;color:var(--muted)}
+ul.plain{margin:0;padding:0;list-style:none;max-width:62ch}ul.plain li{padding:14px 0;border-top:1px solid var(--border2);font-size:clamp(18px,1.4vw,22px);line-height:1.4}ul.plain li:first-child{border-top:0;padding-top:0}
+/* architecture */
+.arch{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.archcol{background:#fff;border:1px solid var(--border);border-radius:18px;padding:20px 22px}
+.archcol h3{margin-bottom:8px}.archcol svg{width:100%;height:auto;overflow:visible}
+.node{fill:#fff;stroke:var(--border);stroke-width:1.5}.node.changed{fill:var(--ink);stroke:var(--ink)}.node.removed{fill:#fff;stroke:var(--ink);stroke-dasharray:6 5}.node.planned{fill:transparent;stroke:#B9C0CE;stroke-dasharray:6 5}
+.nl{font-family:'NB International Pro',sans-serif;font-size:19px;fill:var(--ink);font-weight:500}.nk{font-family:'NB International Pro',sans-serif;font-size:12px;fill:var(--muted)}
+.changed .nl{fill:#fff}.changed .nk{fill:rgba(255,255,255,.72)}.planned .nl{fill:var(--faint)}
+.el{font-family:'NB International Pro',sans-serif;font-size:12px;fill:var(--faint)}
 .edge{stroke:#B9C0CE;stroke-width:1.5;fill:none}.edge.planned{stroke-dasharray:4 6}
-.badge{font-family:'Basis Grotesque Mono Pro',monospace;font-size:10px;letter-spacing:.1em;fill:var(--ink)}
-.archnote{margin-top:12px;font-size:15px;color:var(--muted)}
+.badge{font-family:'NB International Pro',sans-serif;font-size:11px;fill:var(--ink);font-weight:500}
 /* evidence */
-.ctl{display:flex;align-items:center;gap:16px;margin:6px 0 22px;flex-wrap:wrap}
-.seg{display:inline-flex;border:1px solid var(--border);border-radius:999px;overflow:hidden;background:#fff}.seg span{padding:8px 18px;font-size:14px;cursor:pointer;color:var(--muted)}.seg span.on{background:var(--ink);color:#fff}
-.row{margin:0 0 34px}.row .rk{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:10px;display:flex;gap:16px;align-items:baseline}.row .rk span.h{color:var(--muted);text-transform:none;letter-spacing:0;font-size:14px}
-.pair{display:grid;grid-template-columns:1fr 1fr;gap:20px}.pair.mobile{grid-template-columns:repeat(2,minmax(0,440px))}
-.win{display:flex;flex-direction:column;overflow:hidden;border-radius:16px;background:#fff;border:1px solid var(--border);box-shadow:0 1px 2px rgba(0,0,0,.04),0 24px 48px -20px rgba(31,33,47,.25);min-width:0}
-.win .bar{display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--border2)}
-.win .dots{display:flex;gap:6px}.win .dots span{width:9px;height:9px;border-radius:50%;background:var(--border)}
-.win .url{flex:1;border-radius:999px;padding:5px 12px;font-size:11.5px;background:#F3F5F9;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.win .tag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.ctl{display:flex;align-items:center;gap:16px;margin:0 0 28px}
+.seg{display:inline-flex;border:1px solid var(--border);border-radius:999px;overflow:hidden;background:#fff}.seg span{padding:9px 20px;font-size:16px;cursor:pointer;color:var(--muted)}.seg span.on{background:var(--ink);color:#fff}
+.row{margin:0 0 48px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;transition:grid-template-columns .6s cubic-bezier(.22,1,.36,1)}
+.pair.left{grid-template-columns:3fr 1fr}.pair.right{grid-template-columns:1fr 3fr}
+.pair.mobile{grid-template-columns:1fr 1fr;max-width:920px}.pair.mobile.left{grid-template-columns:3fr 1fr}.pair.mobile.right{grid-template-columns:1fr 3fr}
+.win{display:flex;flex-direction:column;overflow:hidden;border-radius:18px;background:#fff;border:1px solid var(--border);box-shadow:0 1px 2px rgba(0,0,0,.04),0 24px 48px -20px rgba(31,33,47,.25);min-width:0}
+.win .bar{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border2)}
+.win .bar h3{margin:0;flex:1;font-size:19px}
+.win .x{width:34px;height:34px;border-radius:50%;border:1px solid var(--border);background:#fff;cursor:pointer;display:grid;place-items:center;transition:transform .25s ease,background .25s ease}.win .x:hover{transform:translateY(-1px);background:#F3F5F9}.win .x svg{width:16px;height:16px;stroke:var(--ink);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .win .body{position:relative;background:#050505;overflow:hidden}
 .win img,.win video{display:block;width:100%;height:auto}
 .scale{position:relative;width:100%;overflow:hidden}.scale iframe{position:absolute;left:0;top:0;border:0;transform-origin:0 0;background:#050505}
 .hit{position:absolute;inset:0;cursor:crosshair;z-index:2}
-.box{position:absolute;border:1px dashed rgba(31,33,47,0);pointer-events:none;transition:border-color .15s}.body:hover .box{border-color:rgba(31,33,47,.55)}
-.pin{position:absolute;width:24px;height:24px;margin:-12px 0 0 -12px;border-radius:50%;background:var(--ink);color:#fff;font-size:12px;line-height:24px;text-align:center;box-shadow:0 0 0 3px #fff;z-index:3;pointer-events:none}
-.composer{position:absolute;z-index:4;background:var(--dark);color:#fff;padding:12px;border-radius:12px;width:320px;font-size:13px;box-shadow:0 24px 48px -20px rgba(0,0,0,.6)}
-.composer .src{font-size:11px;color:rgba(255,255,255,.7);margin-bottom:8px}
-.composer textarea{width:100%;min-height:64px;border:0;border-radius:8px;padding:8px 10px;font:14px 'NB International Pro',sans-serif;resize:vertical}
-.composer .b{display:flex;gap:8px;margin-top:8px}.composer button{border:0;border-radius:999px;padding:7px 14px;font-size:13px;cursor:pointer}.composer .ok{background:#fff;color:var(--ink)}.composer .no{background:rgba(255,255,255,.14);color:#fff}
-.hint{font-size:13px;color:var(--faint);margin-top:8px}
-/* checks */
-table{border-collapse:collapse;width:100%;max-width:1000px;background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;font-size:15px}
-th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--border2);vertical-align:top}th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);font-weight:500}tr:last-child td{border-bottom:0}
-td.res{white-space:nowrap}td.res i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:8px;vertical-align:-1px;border:1.5px solid var(--ink)}td.res i.pass{background:var(--ink)}td.res i.na{background:repeating-linear-gradient(45deg,var(--ink) 0 2px,transparent 2px 4px)}
+.box{position:absolute;border:1px dashed rgba(31,33,47,0);pointer-events:none;transition:border-color .15s}.body:hover .box{border-color:rgba(255,255,255,.5)}
+.pin{position:absolute;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:var(--ink);color:#fff;font-size:13px;line-height:26px;text-align:center;box-shadow:0 0 0 3px #fff;z-index:3;pointer-events:none}
+.composer{position:absolute;z-index:4;background:var(--dark);color:#fff;padding:14px;border-radius:14px;width:340px;font-size:15px;box-shadow:0 24px 48px -20px rgba(0,0,0,.6)}
+.composer .src{font-size:13px;color:rgba(255,255,255,.7);margin-bottom:8px}
+.composer textarea{width:100%;min-height:70px;border:0;border-radius:10px;padding:10px 12px;font:16px 'NB International Pro',sans-serif;resize:vertical}
+.composer .b{display:flex;gap:8px;margin-top:10px}.composer button{border:0;border-radius:999px;padding:8px 16px;font-size:15px;cursor:pointer}.composer .ok{background:#fff;color:var(--ink)}.composer .no{background:rgba(255,255,255,.14);color:#fff}
+.hint{font-size:16px;color:var(--muted);margin:10px 0 0}
+/* checklist */
+.checks{max-width:760px}.checks label{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-top:1px solid var(--border2);font-size:clamp(18px,1.4vw,22px);line-height:1.4;cursor:pointer}.checks label:first-child{border-top:0}
+.checks input{appearance:none;width:26px;height:26px;border:1.5px solid var(--ink);border-radius:7px;margin:3px 0 0;flex:none;cursor:pointer;display:grid;place-items:center}.checks input:checked{background:var(--ink)}.checks input:checked::after{content:'';width:12px;height:7px;border-left:2.5px solid #fff;border-bottom:2.5px solid #fff;transform:translateY(-2px) rotate(-45deg)}
+.checks .n{font-size:14px;color:var(--faint);min-width:22px;margin-top:6px}
 /* review */
-.clist{display:flex;flex-direction:column;max-width:900px}.clist .c{display:flex;gap:12px;align-items:baseline;border-top:1px solid var(--border2);padding:10px 0;font-size:16px}.clist .c:first-child{border-top:0}.clist .n{font-size:12px;color:var(--faint);min-width:18px}.clist code{font-family:'Basis Grotesque Mono Pro',monospace;font-size:12px;background:#fff;border:1px solid var(--border);padding:1px 8px;border-radius:999px}.clist .x{margin-left:auto;color:var(--faint);cursor:pointer}
-.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-.btn{border:1px solid var(--ink);background:#fff;color:var(--ink);border-radius:999px;padding:11px 20px;font-size:15px;cursor:pointer;transition:transform .25s ease}.btn:hover{transform:translateY(-1px)}.btn.p{background:var(--ink);color:#fff}
-.out{display:none;margin-top:18px;background:var(--dark);color:#fff;padding:18px 20px;border-radius:16px;max-width:1000px}.out.show{display:block}.out pre{white-space:pre-wrap;font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.85);background:rgba(255,255,255,.06);padding:10px 12px;border-radius:10px;margin:6px 0 14px}.out .k{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6)}
-.out .btn{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
-footer{padding:40px 0 0;font-size:12.5px;color:var(--faint)}
-@media (max-width:900px){.arch,.pair,.pair.mobile{grid-template-columns:1fr}}
+.clist{display:flex;flex-direction:column;max-width:900px}.clist .c{display:flex;gap:14px;align-items:baseline;border-top:1px solid var(--border2);padding:14px 0;font-size:18px}.clist .c:first-child{border-top:0}.clist .n{font-size:14px;color:var(--faint);min-width:22px}.clist code{font-family:ui-monospace,Menlo,monospace;font-size:13px;background:#fff;border:1px solid var(--border);padding:2px 9px;border-radius:999px}.clist .where{color:var(--muted);font-size:15px}.clist .rm{margin-left:auto;color:var(--faint);cursor:pointer}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.btn{border:1px solid var(--ink);background:#fff;color:var(--ink);border-radius:999px;padding:13px 24px;font-size:17px;cursor:pointer;transition:transform .25s ease}.btn:hover{transform:translateY(-1px)}.btn.p{background:var(--ink);color:#fff}.btn:disabled{opacity:.35;cursor:default;transform:none}
+.out{display:none;margin-top:22px;background:var(--dark);color:#fff;padding:20px 22px;border-radius:18px;max-width:1000px}.out.show{display:block}.out h3{color:#fff;font-size:17px;margin:0 0 6px}.out pre{white-space:pre-wrap;font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.85);background:rgba(255,255,255,.06);padding:12px 14px;border-radius:10px;margin:0 0 16px;font-family:ui-monospace,Menlo,monospace}.out .btn{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+footer{padding:48px 0 0;font-size:14px;color:var(--faint)}
+@media (max-width:900px){.arch,.pair,.pair.left,.pair.right{grid-template-columns:1fr}}
 </style></head><body>
-<div class="top mono"><span>Coframe</span><span id="uititle"></span></div>
 <main>
-<section id="goal"><div class="kick mono">Goal</div><h1 class="display" id="goaltext"></h1><p class="big" id="goalwhy"></p><p class="meta mono" id="prline"></p></section>
-<section id="changes"><div class="kick mono">What this PR changes</div><ul class="plain" id="changelist"></ul></section>
-<section id="arch"><div class="kick mono">Where the change is</div><h2 class="display" id="archh"></h2><div class="arch"><div class="archcol"><div class="lab mono">Before</div><div id="archb"></div></div><div class="archcol"><div class="lab mono">After</div><div id="archa"></div></div></div><p class="archnote" id="archnote"></p></section>
-<section id="evidence"><div class="kick mono">QA evidence</div><h2 class="display">Before and after</h2><div class="ctl"><div class="seg mono" id="seg"><span data-vp="desktop" class="on">Desktop</span><span data-vp="mobile">Mobile</span></div><span class="meta mono" id="meta"></span></div>
- <div class="row" id="rowshot"><div class="rk mono">Screenshot <span class="h">Click a point on the after image to add a comment.</span></div><div class="pair" id="pairshot"></div></div>
- <div class="row" id="rowvideo"><div class="rk mono">Video <span class="h">Four seconds: load, scroll, hover.</span></div><div class="pair" id="pairvideo"></div></div>
- <div class="row" id="rowlive"><div class="rk mono">Live page <span class="h">The real pages, scaled to fit. Scroll inside them. Click a point on the after page to add a comment.</span></div><div class="pair" id="pairlive"></div></div>
- <div class="row"><div class="rk mono">Checks that ran</div><table id="checks"><thead><tr><th>Check</th><th>Result</th><th>Detail</th></tr></thead><tbody></tbody></table></div>
+<section id="goal"><h1 class="display" id="goaltext"></h1><p class="lead" id="goalwhy"></p><p class="small" id="prline"></p></section>
+<section id="changes"><h2 class="display">What changes</h2><ul class="plain" id="changelist"></ul></section>
+<section id="arch"><h2 class="display" id="archh"></h2><div class="arch"><div class="archcol"><h3 class="display">Before</h3><div id="archb"></div></div><div class="archcol"><h3 class="display">After</h3><div id="archa"></div></div></div><p class="small" id="archnote" style="margin-top:14px"></p></section>
+<section id="evidence"><h2 class="display">Before and after</h2><div class="ctl"><div class="seg" id="seg"><span data-vp="desktop" class="on">Desktop</span><span data-vp="mobile">Mobile</span></div></div>
+ <div class="row"><h3 class="display">Screenshot</h3><div class="pair" id="pairshot"></div><p class="hint">Click a point on the after image to add a comment.</p></div>
+ <div class="row"><h3 class="display">Video</h3><div class="pair" id="pairvideo"></div><p class="hint">Four seconds. The page loads, scrolls, and a pointer moves over the change.</p></div>
+ <div class="row"><h3 class="display">Live page</h3><div class="pair" id="pairlive"></div><p class="hint">The real pages. Scroll inside them. Click a point on the after page to add a comment.</p></div>
 </section>
-<section id="review"><div class="kick mono">Your review</div><h2 class="display">Comments</h2><div class="clist" id="clist"></div><div class="btns"><span class="btn" id="submitc">Submit as comments</span><span class="btn p" id="submitf">Submit and ask the agent to fix</span><span class="btn" id="approve">Approve</span></div><div class="out" id="out"></div></section>
-<footer class="mono" id="foot"></footer>
+<section id="manual"><h2 class="display">What to check before you approve</h2><div class="checks" id="checks"></div></section>
+<section id="review"><h2 class="display">Your review</h2><div class="clist" id="clist"></div><div class="btns"><span class="btn p" id="approve">Approve</span><span class="btn" id="submitf">Ask the agent to fix</span><span class="btn" id="submitc">Send as comments</span></div><div class="out" id="out"></div></section>
+<footer id="foot"></footer>
 </main>
 <script id="data" type="application/json">/*DATA*/</script>
 <script>
 const D = JSON.parse(document.getElementById('data').textContent);
 const F = D.features[0];
-const S = { vp: 'desktop', comments: load('comments', []), approved: load('approved', false) };
+const S = { vp: 'desktop', comments: load('comments', []), ticks: load('ticks', {}), expand: {} };
 function load(k, d) { try { return JSON.parse(localStorage.getItem('spr:' + D.pr.key + ':' + k)) ?? d; } catch { return d; } }
 function save(k, v) { try { localStorage.setItem('spr:' + D.pr.key + ':' + k, JSON.stringify(v)); } catch {} }
 const $ = (s, r = document) => r.querySelector(s); const esc = (s) => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const ICON = '<svg viewBox="0 0 24 24"><path d="M15 4h5v5M9 20H4v-5M20 4l-6 6M4 20l6-6"/></svg>';
+const ICON_IN = '<svg viewBox="0 0 24 24"><path d="M10 14H5v5M14 10h5V5M14 10l6-6M10 14l-6 6"/></svg>';
 
-$('#uititle').textContent = `PR review · #${D.pr.number}`;
 $('#goaltext').textContent = D.goal.text; $('#goalwhy').textContent = D.goal.why;
-$('#prline').textContent = `${D.pr.repo} · PR #${D.pr.number} · ${D.pr.title} · ${D.pr.stats ? `${D.pr.stats.files} files, +${D.pr.stats.additions.toLocaleString()} −${D.pr.stats.deletions.toLocaleString()}` : ''}`;
+$('#prline').textContent = D.goal.meta || '';
 $('#changelist').innerHTML = (D.changes || []).map(c => `<li>${esc(c)}</li>`).join('');
 $('#archh').textContent = D.architecture.headline || ''; $('#archnote').textContent = D.architecture.note || '';
 $('#archb').innerHTML = archSVG(D.architecture.before); $('#archa').innerHTML = archSVG(D.architecture.after);
-$('#checks tbody').innerHTML = D.checks.map(c => `<tr><td>${esc(c.check)}</td><td class="res"><i class="${c.state === 'pass' ? 'pass' : c.state === 'fail' ? '' : 'na'}"></i>${c.state === 'pass' ? 'Pass' : c.state === 'fail' ? 'Fail' : 'Not run'}</td><td>${esc(c.detail || '')}</td></tr>`).join('');
 $('#foot').textContent = D.footer;
+function renderChecks() { $('#checks').innerHTML = (D.manual || []).map((c, i) => `<label><input type="checkbox" data-i="${i}" ${S.ticks[i] ? 'checked' : ''}><span class="n">${i + 1}</span><span>${esc(c)}</span></label>`).join(''); $('#checks').querySelectorAll('input').forEach(b => b.onchange = () => { S.ticks[b.dataset.i] = b.checked; save('ticks', S.ticks); gate(); }); gate(); }
+function gate() { const all = (D.manual || []).every((c, i) => S.ticks[i]); $('#approve').toggleAttribute('disabled', !all); $('#approve').title = all ? '' : 'Tick every item in the checklist first.'; }
 
 function archSVG(g) {
   const cols = Math.max(...g.nodes.map(n => n.x)) + 1, rowsN = Math.max(...g.nodes.map(n => n.y)) + 1; const cw = 200, ch = 74, gx = 250, gy = 150, ox = 6, oy = 30; const W = ox * 2 + cols * gx - (gx - cw), H = oy * 2 + rowsN * gy - (gy - ch);
   const pos = (n) => ({ x: ox + n.x * gx, y: oy + n.y * gy }); const byId = Object.fromEntries(g.nodes.map(n => [n.id, n]));
   const edges = g.edges.map(([a, b, label]) => { const A = pos(byId[a]), B = pos(byId[b]); const planned = byId[a].state === 'planned' || byId[b].state === 'planned'; let x1, y1, x2, y2; if (A.y === B.y) { x1 = A.x + cw; y1 = A.y + ch / 2; x2 = B.x; y2 = B.y + ch / 2; } else { x1 = A.x + cw / 2; y1 = A.y + ch; x2 = B.x + cw / 2; y2 = B.y; if (A.y > B.y) { y1 = A.y; y2 = B.y + ch; } } return `<path class="edge ${planned ? 'planned' : ''}" d="M${x1},${y1} C${(x1 + x2) / 2},${y1} ${(x1 + x2) / 2},${y2} ${x2},${y2}" marker-end="url(#ar)"/><text class="el" x="${(x1 + x2) / 2}" y="${(y1 + y2) / 2 - 6}" text-anchor="middle">${esc(label)}</text>`; }).join('');
-  const nodes = g.nodes.map(n => { const p = pos(n); const st = n.state || ''; const tag = st === 'changed' || st === 'new' ? 'CHANGED' : st === 'removed' ? 'REMOVED' : st === 'planned' ? 'LATER' : ''; return `<g class="${st === 'new' ? 'changed' : st}"><rect class="node ${st === 'new' ? 'changed' : st}" x="${p.x}" y="${p.y}" width="${cw}" height="${ch}" rx="12"/><text class="nk" x="${p.x + 14}" y="${p.y + 22}">${esc(n.kicker || '')}</text><text class="nl" x="${p.x + 14}" y="${p.y + 48}">${esc(n.label)}</text>${tag ? `<text class="badge" x="${p.x + cw - 12}" y="${p.y + ch - 10}" text-anchor="end" style="${st === 'changed' || st === 'new' ? 'fill:#fff' : ''}">${tag}</text>` : ''}</g>`; }).join('');
+  const nodes = g.nodes.map(n => { const p = pos(n); const st = n.state === 'new' ? 'changed' : (n.state || ''); const tag = st === 'changed' ? 'Changed' : st === 'removed' ? 'Removed' : st === 'planned' ? 'Later' : ''; return `<g class="${st}"><rect class="node ${st}" x="${p.x}" y="${p.y}" width="${cw}" height="${ch}" rx="12"/><text class="nk" x="${p.x + 14}" y="${p.y + 22}">${esc(n.kicker || '')}</text><text class="nl" x="${p.x + 14}" y="${p.y + 50}">${esc(n.label)}</text>${tag ? `<text class="badge" x="${p.x + cw - 12}" y="${p.y + ch - 10}" text-anchor="end" style="${st === 'changed' ? 'fill:#fff' : ''}">${tag}</text>` : ''}</g>`; }).join('');
   return `<svg viewBox="0 0 ${W} ${H}"><defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#B9C0CE"/></marker></defs>${edges}${nodes}</svg>`;
 }
 
 // evidence
 function vp() { return F.viewports[S.vp]; }
-function win(which, inner, extra = '') { const label = which === 'before' ? `${D.pr.repo} · ${D.pr.base}` : `${D.pr.repo} · PR #${D.pr.number}`; return `<div class="win ${which}"><div class="bar"><div class="dots"><span></span><span></span><span></span></div><div class="url mono">${esc(label)}</div><span class="tag mono">${which}</span></div><div class="body">${inner}${extra}</div></div>`; }
+function win(which, inner, extra = '') { return `<div class="win ${which}"><div class="bar"><h3 class="display">${which === 'before' ? 'Before' : 'After'}</h3><button class="x" data-side="${which}" title="Make this side larger">${ICON}</button></div><div class="body">${inner}${extra}</div></div>`; }
 function render() {
-  const v = vp(); document.querySelectorAll('#seg span').forEach(s => s.classList.toggle('on', s.dataset.vp === S.vp)); document.querySelectorAll('.pair').forEach(p => p.className = 'pair ' + S.vp);
-  $('#meta').textContent = `${v.size.width} × ${v.size.height} · before = ${D.pr.base} · after = PR #${D.pr.number}`;
+  const v = vp(); document.querySelectorAll('#seg span').forEach(s => s.classList.toggle('on', s.dataset.vp === S.vp));
   $('#pairshot').innerHTML = win('before', v.before.screenshot ? `<img src="${v.before.screenshot}" alt="">` : '') + win('after', v.after.screenshot ? `<img src="${v.after.screenshot}" alt="">` : '', '<div class="hit" data-kind="shot"></div><div class="pins"></div>');
-  $('#pairvideo').innerHTML = win('before', v.before.video ? `<video src="${v.before.video}" autoplay muted loop playsinline></video>` : `<p class="hint" style="padding:14px;color:#aaa">No video.</p>`) + win('after', v.after.video ? `<video src="${v.after.video}" autoplay muted loop playsinline></video>` : `<p class="hint" style="padding:14px;color:#aaa">No video.</p>`);
+  $('#pairvideo').innerHTML = win('before', v.before.video ? `<video src="${v.before.video}" autoplay muted loop playsinline></video>` : `<p class="hint" style="padding:16px;color:#aaa">No video.</p>`) + win('after', v.after.video ? `<video src="${v.after.video}" autoplay muted loop playsinline></video>` : `<p class="hint" style="padding:16px;color:#aaa">No video.</p>`);
   const live = (which) => `<div class="scale" data-w="${v.size.width}" data-h="${v.size.height}"><iframe src="${v[which].live}" width="${v.size.width}" height="${v.size.height}"></iframe></div>`;
   $('#pairlive').innerHTML = win('before', live('before')) + win('after', live('after'), '<div class="hit" data-kind="live"></div><div class="pins"></div>');
-  fitLive(); wireHits(); renderPins(); renderBoxes(); renderComments(); document.querySelectorAll('video').forEach(v => v.addEventListener('loadedmetadata', () => { try { v.currentTime = 1.2; } catch {} }, { once: true }));
+  document.querySelectorAll('.pair').forEach(p => { p.className = 'pair ' + S.vp + ' ' + ({ before: 'left', after: 'right' }[S.expand[p.id]] || ''); p.querySelectorAll('.x').forEach(b => { const on = S.expand[p.id] === b.dataset.side; b.innerHTML = on ? ICON_IN : ICON; b.title = on ? 'Make both sides equal' : 'Make this side larger'; b.onclick = () => { S.expand[p.id] = S.expand[p.id] === b.dataset.side ? '' : b.dataset.side; render(); }; }); p.addEventListener('transitionend', fitLive); });
+  fitLive(); wireHits(); renderPins(); renderBoxes(); renderComments();
+  document.querySelectorAll('video').forEach(v => v.addEventListener('loadedmetadata', () => { try { v.currentTime = 1.2; } catch {} }, { once: true }));
 }
-function fitLive() { document.querySelectorAll('.scale').forEach(s => { const w = +s.dataset.w, h = +s.dataset.h; const sc = s.clientWidth / w; s.style.height = (h * sc) + 'px'; const f = s.querySelector('iframe'); f.style.transform = `scale(${sc})`; }); }
-window.addEventListener('resize', fitLive);
+function fitLive() { document.querySelectorAll('.scale').forEach(s => { const w = +s.dataset.w, h = +s.dataset.h; const sc = s.clientWidth / w; s.style.height = (h * sc) + 'px'; s.querySelector('iframe').style.transform = `scale(${sc})`; }); }
+window.addEventListener('resize', fitLive); setInterval(fitLive, 400);
 function hitSource(x, y) { const v = vp(); const sz = v.after.screenshotSize || v.size; const off = v.after.offset || { x: 0, y: 0 }; const px = x * sz.width + off.x, py = y * sz.height + off.y; let best = null, area = Infinity; for (const b of v.after.boxes || []) { const r = b.rect; if (px >= r.x && px <= r.x + r.w && py >= r.y && py <= r.y + r.h && r.w * r.h < area) { best = b; area = r.w * r.h; } } return best; }
 function wireHits() { document.querySelectorAll('.hit').forEach(h => { h.onclick = (ev) => { const body = h.parentElement; const r = body.getBoundingClientRect(); openComposer(body, h.dataset.kind, (ev.clientX - r.left) / r.width, (ev.clientY - r.top) / r.height, ev.clientX - r.left, ev.clientY - r.top); }; }); }
 function renderBoxes() { const v = vp(); const body = $('#pairshot .after .body'); if (!body) return; body.querySelectorAll('.box').forEach(e => e.remove()); const sz = v.after.screenshotSize || v.size; const off = v.after.offset || { x: 0, y: 0 }; for (const b of (v.after.boxes || []).filter(b => b.src)) { const r = b.rect; const d = document.createElement('div'); d.className = 'box'; d.style.left = ((r.x - off.x) / sz.width * 100) + '%'; d.style.top = ((r.y - off.y) / sz.height * 100) + '%'; d.style.width = (r.w / sz.width * 100) + '%'; d.style.height = (r.h / sz.height * 100) + '%'; body.appendChild(d); } }
 function renderPins() { document.querySelectorAll('.pins').forEach(p => { const kind = p.previousElementSibling.dataset.kind; p.innerHTML = S.comments.map((c, i) => c.vp === S.vp && c.kind === kind ? `<span class="pin" style="left:${c.x * 100}%;top:${c.y * 100}%">${i + 1}</span>` : '').join(''); }); }
-function openComposer(body, kind, x, y, px, py) { document.querySelectorAll('.composer').forEach(e => e.remove()); const hit = hitSource(x, y); const c = document.createElement('div'); c.className = 'composer'; c.style.left = Math.max(0, Math.min(px, body.clientWidth - 330)) + 'px'; c.style.top = Math.max(0, Math.min(py + 12, body.clientHeight - 150)) + 'px'; c.innerHTML = `<div class="src mono">${hit && hit.src ? esc(hit.src) + (hit.text ? ' · "' + esc(hit.text.slice(0, 32)) + '"' : '') : 'No changed element at this point'} · ${S.vp} · ${kind === 'live' ? 'live page' : 'screenshot'}</div><textarea placeholder="What must change here?"></textarea><div class="b"><button class="ok">Add comment</button><button class="no">Cancel</button></div>`; body.appendChild(c); const ta = c.querySelector('textarea'); ta.focus(); c.querySelector('.no').onclick = () => c.remove(); c.querySelector('.ok').onclick = () => { const text = ta.value.trim(); if (!text) return; S.comments.push({ text, x, y, vp: S.vp, kind, src: hit && hit.src || null, element: hit && hit.text || null, at: new Date().toISOString() }); save('comments', S.comments); c.remove(); renderPins(); renderComments(); }; }
-function renderComments() { const el = $('#clist'); el.innerHTML = S.comments.length ? S.comments.map((c, i) => `<div class="c"><span class="n mono">${i + 1}</span><span>${esc(c.text)} ${c.src ? `<code>${esc(c.src)}</code>` : ''} <span class="meta mono">${c.vp} · ${c.kind === 'live' ? 'live page' : 'screenshot'}</span></span><span class="x" data-i="${i}">✕</span></div>`).join('') : `<div class="hint">No comments yet. Click a point on an after pane above.</div>`; el.querySelectorAll('.x').forEach(x => x.onclick = () => { S.comments.splice(+x.dataset.i, 1); save('comments', S.comments); renderPins(); renderComments(); }); }
-function reviewMarkdown(mode) { const cs = S.comments; const L = [`### Review of PR #${D.pr.number}: ${F.title}`, '', `Goal: ${D.goal.text}`, '']; if (!cs.length) L.push('No comments.'); else cs.forEach((c, i) => L.push(`${i + 1}. ${c.text}${c.src ? ` (\`${c.src}\`)` : ''} · ${c.vp}${c.element ? ` · on "${c.element}"` : ''}`)); L.push('', mode === 'fix' ? 'Requested changes. Fix each item on the PR branch. Capture the evidence again at both widths. Submit the review again.' : mode === 'approve' ? 'Approved.' : 'Left as comments.'); return L.join('\n'); }
-function agentPrompt() { return `Review feedback on PR #${D.pr.number} (${D.pr.repo}), page ${F.page}:\n\n` + S.comments.map((c, i) => `${i + 1}. [${c.vp}] ${c.text}${c.src ? `\n   → ${c.src}` : ''}${c.element ? `\n   element: "${c.element}"` : ''}`).join('\n') + `\n\nFix these on the PR branch. Stay inside the files of this PR. Capture the evidence again at the ${[...new Set(S.comments.map(c => c.vp))].join(' and ') || 'changed'} width(s). Generate the review again. Reply with one short sentence that says what you will change. Then do it.`; }
-function showOut(mode) { const md = reviewMarkdown(mode); const out = $('#out'); out.className = 'out show'; const cmd = `gh pr review ${D.pr.number} --repo ${D.pr.repo} ${mode === 'approve' ? '--approve' : '--comment'} --body-file review.md`; out.innerHTML = `<div class="k mono">Review text</div><pre>${esc(md)}</pre><div class="k mono">Command</div><pre>${esc(cmd)}</pre>${mode === 'fix' ? `<div class="k mono">Prompt for the agent</div><pre>${esc(agentPrompt())}</pre>` : ''}<div class="btns"><span class="btn" id="dl">Download review.md</span>${mode === 'fix' ? `<span class="btn" id="dlp">Download fix-prompt.md</span>` : ''}</div>`; $('#dl').onclick = () => download('review.md', md); if (mode === 'fix') $('#dlp').onclick = () => download('fix-prompt.md', agentPrompt()); out.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+function openComposer(body, kind, x, y, px, py) { document.querySelectorAll('.composer').forEach(e => e.remove()); const hit = hitSource(x, y); const c = document.createElement('div'); c.className = 'composer'; c.style.left = Math.max(0, Math.min(px, body.clientWidth - 350)) + 'px'; c.style.top = Math.max(0, Math.min(py + 12, body.clientHeight - 170)) + 'px'; c.innerHTML = `<div class="src">${hit && hit.src ? 'Code: ' + esc(hit.src) : 'No changed code at this point.'}</div><textarea placeholder="Write what must change here."></textarea><div class="b"><button class="ok">Add comment</button><button class="no">Cancel</button></div>`; body.appendChild(c); const ta = c.querySelector('textarea'); ta.focus(); c.querySelector('.no').onclick = () => c.remove(); c.querySelector('.ok').onclick = () => { const text = ta.value.trim(); if (!text) return; S.comments.push({ text, x, y, vp: S.vp, kind, src: hit && hit.src || null, element: hit && hit.text || null, at: new Date().toISOString() }); save('comments', S.comments); c.remove(); renderPins(); renderComments(); }; }
+function renderComments() { const el = $('#clist'); el.innerHTML = S.comments.length ? S.comments.map((c, i) => `<div class="c"><span class="n">${i + 1}</span><span>${esc(c.text)} ${c.src ? `<code>${esc(c.src)}</code>` : ''} <span class="where">${c.vp}, ${c.kind === 'live' ? 'live page' : 'screenshot'}</span></span><span class="rm" data-i="${i}" title="Remove">✕</span></div>`).join('') : `<p class="hint">You have no comments. Click a point on an after pane to add one.</p>`; el.querySelectorAll('.rm').forEach(x => x.onclick = () => { S.comments.splice(+x.dataset.i, 1); save('comments', S.comments); renderPins(); renderComments(); }); }
+function reviewMarkdown(mode) { const cs = S.comments; const L = [`### Review of PR #${D.pr.number}`, '', `Goal: ${D.goal.text}`, '']; L.push(`Checklist: ${(D.manual || []).filter((c, i) => S.ticks[i]).length} of ${(D.manual || []).length} items checked.`, ''); if (!cs.length) L.push('No comments.'); else cs.forEach((c, i) => L.push(`${i + 1}. ${c.text}${c.src ? ` (\`${c.src}\`)` : ''} · ${c.vp}${c.element ? ` · on "${c.element}"` : ''}`)); L.push('', mode === 'fix' ? 'Requested changes. Fix each item on the PR branch. Capture the evidence again at both widths. Submit the review again.' : mode === 'approve' ? 'Approved.' : 'Sent as comments.'); return L.join('\n'); }
+function agentPrompt() { return `Review feedback on PR #${D.pr.number} (${D.pr.repo}), page ${F.page}:\n\n` + S.comments.map((c, i) => `${i + 1}. [${c.vp}] ${c.text}${c.src ? `\n   code: ${c.src}` : ''}${c.element ? `\n   element: "${c.element}"` : ''}`).join('\n') + `\n\nFix these items on the PR branch. Change only files in this PR. Capture the evidence again at the ${[...new Set(S.comments.map(c => c.vp))].join(' and ') || 'changed'} width(s). Generate the review again. Reply with one short sentence that says what you will change. Then do it.`; }
+function showOut(mode) { const md = reviewMarkdown(mode); const out = $('#out'); out.className = 'out show'; const cmd = `gh pr review ${D.pr.number} --repo ${D.pr.repo} ${mode === 'approve' ? '--approve' : '--comment'} --body-file review.md`; out.innerHTML = `<h3>Review text</h3><pre>${esc(md)}</pre><h3>Command</h3><pre>${esc(cmd)}</pre>${mode === 'fix' ? `<h3>Prompt for the agent</h3><pre>${esc(agentPrompt())}</pre>` : ''}<div class="btns" style="margin-top:4px"><span class="btn" id="dl">Download review.md</span>${mode === 'fix' ? `<span class="btn" id="dlp">Download fix-prompt.md</span>` : ''}</div>`; $('#dl').onclick = () => download('review.md', md); if (mode === 'fix') $('#dlp').onclick = () => download('fix-prompt.md', agentPrompt()); out.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
 function download(name, text) { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type: 'text/markdown' })); a.download = name; a.click(); }
 $('#seg').onclick = (e) => { if (e.target.dataset.vp) { S.vp = e.target.dataset.vp; render(); } };
-$('#submitc').onclick = () => showOut('comments'); $('#submitf').onclick = () => showOut('fix'); $('#approve').onclick = () => { S.approved = true; save('approved', true); showOut('approve'); };
-render();
+$('#submitc').onclick = () => showOut('comments'); $('#submitf').onclick = () => showOut('fix'); $('#approve').onclick = () => { if ($('#approve').hasAttribute('disabled')) return; showOut('approve'); };
+renderChecks(); render();
 </script></body></html>

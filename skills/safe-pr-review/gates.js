@@ -14,15 +14,17 @@ const { chromium } = require('playwright'); const fs = require('fs'); const { ex
   }
   // 3 untouched region: pixels below the header on the desktop page, before vs after
   try {
-    const shot = async (dir) => { const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 }); const p = await ctx.newPage(); await p.goto('file://' + dir + '/index.html'); await p.waitForTimeout(1500); const buf = await p.screenshot({ clip: { x: 0, y: 95, width: 1440, height: 805 } }); await ctx.close(); return buf; };
-    const b = await shot(before), a = await shot(after);
-    if (PNG) { const pb = PNG.sync.read(b), pa = PNG.sync.read(a); let diff = 0; for (let i = 0; i < pb.data.length; i += 4) { if (Math.abs(pb.data[i] - pa.data[i]) + Math.abs(pb.data[i+1] - pa.data[i+1]) + Math.abs(pb.data[i+2] - pa.data[i+2]) > 30) diff++; } const pct = diff / (pb.width * pb.height) * 100; gates.push({ id: 'untouched-region', state: pct < 0.5 ? 'pass' : 'fail', detail: `${pct.toFixed(2)}% of pixels below the header differ (threshold 0.5%)` }); }
+    // the PR moves the strip from the top to a bottom dock: compare the same content region, below the old header before and from the top after, above the dock
+    const SHIFT = +(process.env.SHIFT || 0), DOCK = +(process.env.DOCK || 0); const H = 900 - 95 - DOCK;
+    const shot = async (dir, y) => { const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 }); const p = await ctx.newPage(); await p.goto('file://' + dir + '/index.html'); await p.waitForTimeout(1500); const buf = await p.screenshot({ clip: { x: 0, y, width: 1440, height: H } }); await ctx.close(); return buf; };
+    const b = await shot(before, 95), a = await shot(after, 95 - SHIFT);
+    if (PNG) { const pb = PNG.sync.read(b), pa = PNG.sync.read(a); let diff = 0; for (let i = 0; i < pb.data.length; i += 4) { if (Math.abs(pb.data[i] - pa.data[i]) + Math.abs(pb.data[i+1] - pa.data[i+1]) + Math.abs(pb.data[i+2] - pa.data[i+2]) > 30) diff++; } const pct = diff / (pb.width * pb.height) * 100; gates.push({ id: 'untouched-region', state: pct < 0.5 ? 'pass' : 'fail', detail: `${pct.toFixed(2)}% of pixels in the page content differ (threshold 0.5%)` }); }
     else gates.push({ id: 'untouched-region', state: 'not_run', detail: 'pngjs not installed' });
   } catch (e) { gates.push({ id: 'untouched-region', state: 'not_run', detail: e.message.slice(0, 80) }); }
   // 4 the board renders at both widths with the expected shape
   for (const [page, vp] of [['index.html', { width: 1440, height: 900 }], ['index.mobile.html', { width: 390, height: 844 }]]) {
     const ctx = await browser.newContext({ viewport: vp }); const p = await ctx.newPage(); await p.goto('file://' + after + '/' + page); await p.waitForTimeout(1200);
-    const r = await p.evaluate(() => { const groups = [...document.querySelectorAll('#live-scoreboard .sb-sport')]; return { groups: groups.length, maxCards: Math.max(...groups.map(g => g.querySelectorAll('.sb-game').length)), actions: document.querySelectorAll('#live-scoreboard .sb-action .sb-trade').length, cards: document.querySelectorAll('#live-scoreboard .sb-game').length, overflow: (() => { const b = document.querySelector('#live-scoreboard'); const r = b.getBoundingClientRect(); return r.height > 95; })() }; });
+    const r = await p.evaluate(() => { const groups = [...document.querySelectorAll('#live-scoreboard .sb-sport')]; return { groups: groups.length, maxCards: Math.max(...groups.map(g => g.querySelectorAll('.sb-game').length)), actions: document.querySelectorAll('#live-scoreboard .sb-action .sb-trade').length, cards: document.querySelectorAll('#live-scoreboard .sb-game').length, overflow: (() => { const b = document.querySelector('#live-scoreboard'); const r = b.getBoundingClientRect(); return r.height > 95 || r.bottom > innerHeight + 1; })() }; });
     await ctx.close();
     gates.push({ id: 'renders:' + page, state: r.groups > 0 && r.maxCards <= 3 && r.actions === r.cards && !r.overflow ? 'pass' : 'fail', detail: `${r.groups} sports, max ${r.maxCards} cards per sport, ${r.actions}/${r.cards} cards with a Trade action${r.overflow ? ', board taller than its slot' : ''}` });
   }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T00:28:31.122Z",
+  "generatedAt": "2026-10-11T01:30:27.718Z",
   "before": "/private/tmp/claude-501/-Users-robertnowell-Documents-tranquility-base/3cec67e9-98e4-4489-b02c-ad0b81934142/scratchpad/site-before",
   "after": "/private/tmp/claude-501/-Users-robertnowell-Documents-tranquility-base/3cec67e9-98e4-4489-b02c-ad0b81934142/scratchpad/site-after",
   "outDir": "/private/tmp/claude-501/-Users-robertnowell-Documents-tranquility-base/3cec67e9-98e4-4489-b02c-ad0b81934142/scratchpad/evidence",
@@ -61,9 +61,9 @@
             "selectorFound": true,
             "elementRect": {
               "x": 0,
-              "y": 0,
+              "y": 686,
               "w": 390,
-              "h": 88
+              "h": 81
             },
             "video": "sport-groups/mobile-after.webm"
           },
@@ -71,12 +71,12 @@
           "boxesCount": 63,
           "errors": [],
           "timings": {
-            "beforeStillsMs": 2128,
-            "afterStillsMs": 2102,
-            "beforeVideoMs": 4425,
-            "afterVideoMs": 4369,
-            "boxesMs": 1792,
-            "totalMs": 14816
+            "beforeStillsMs": 2063,
+            "afterStillsMs": 2007,
+            "beforeVideoMs": 4179,
+            "afterVideoMs": 4229,
+            "boxesMs": 1738,
+            "totalMs": 14216
           }
         },
         "desktop": {
@@ -107,9 +107,9 @@
             "selectorFound": true,
             "elementRect": {
               "x": 0,
-              "y": 0,
+              "y": 811,
               "w": 1440,
-              "h": 88
+              "h": 89
             },
             "video": "sport-groups/desktop-after.webm"
           },
@@ -117,17 +117,17 @@
           "boxesCount": 63,
           "errors": [],
           "timings": {
-            "beforeStillsMs": 2072,
-            "afterStillsMs": 2036,
-            "beforeVideoMs": 4435,
-            "afterVideoMs": 4289,
-            "boxesMs": 1840,
-            "totalMs": 14673
+            "beforeStillsMs": 1973,
+            "afterStillsMs": 2022,
+            "beforeVideoMs": 4396,
+            "afterVideoMs": 4265,
+            "boxesMs": 1750,
+            "totalMs": 14407
           }
         }
       },
       "timings": {
-        "totalMs": 29490
+        "totalMs": 28626
       }
     },
     {
@@ -171,9 +171,9 @@
             "selectorFound": true,
             "elementRect": {
               "x": 8,
-              "y": 0,
+              "y": 687,
               "w": 1027,
-              "h": 88
+              "h": 80
             },
             "video": "top-3-cards/mobile-after.webm"
           },
@@ -181,12 +181,12 @@
           "boxesCount": 20,
           "errors": [],
           "timings": {
-            "beforeStillsMs": 2071,
-            "afterStillsMs": 1910,
-            "beforeVideoMs": 4274,
-            "afterVideoMs": 4666,
-            "boxesMs": 1771,
-            "totalMs": 14693
+            "beforeStillsMs": 1989,
+            "afterStillsMs": 2048,
+            "beforeVideoMs": 4239,
+            "afterVideoMs": 4213,
+            "boxesMs": 1716,
+            "totalMs": 14206
           }
         },
         "desktop": {
@@ -217,7 +217,7 @@
             "selectorFound": true,
             "elementRect": {
               "x": 16,
-              "y": 0,
+              "y": 812,
               "w": 969,
               "h": 88
             },
@@ -227,17 +227,17 @@
           "boxesCount": 20,
           "errors": [],
           "timings": {
-            "beforeStillsMs": 2015,
-            "afterStillsMs": 1919,
-            "beforeVideoMs": 4408,
-            "afterVideoMs": 4273,
-            "boxesMs": 1695,
-            "totalMs": 14311
+            "beforeStillsMs": 2016,
+            "afterStillsMs": 1995,
+            "beforeVideoMs": 4421,
+            "afterVideoMs": 4335,
+            "boxesMs": 1615,
+            "totalMs": 14382
           }
         }
       },
       "timings": {
-        "totalMs": 29006
+        "totalMs": 28591
       }
     },
     {
@@ -280,9 +280,9 @@
             "selectorFound": true,
             "elementRect": {
               "x": 76,
-              "y": 8,
+              "y": 695,
               "w": 310,
-              "h": 72
+              "h": 64
             },
             "video": "best-odds-action/mobile-after.webm"
           },
@@ -290,12 +290,12 @@
           "boxesCount": 6,
           "errors": [],
           "timings": {
-            "beforeStillsMs": 1966,
-            "afterStillsMs": 2026,
-            "beforeVideoMs": 4281,
-            "afterVideoMs": 4181,
-            "boxesMs": 1755,
-            "totalMs": 14209
+            "beforeStillsMs": 1937,
+            "afterStillsMs": 2024,
+            "beforeVideoMs": 4213,
+            "afterVideoMs": 4232,
+            "boxesMs": 1719,
+            "totalMs": 14125
           }
         },
         "desktop": {
@@ -326,7 +326,7 @@
             "selectorFound": true,
             "elementRect": {
               "x": 100,
-              "y": 8,
+              "y": 820,
               "w": 284,
               "h": 72
             },
@@ -336,21 +336,21 @@
           "boxesCount": 6,
           "errors": [],
           "timings": {
-            "beforeStillsMs": 1961,
-            "afterStillsMs": 1984,
-            "beforeVideoMs": 4417,
-            "afterVideoMs": 4313,
-            "boxesMs": 1602,
-            "totalMs": 14278
+            "beforeStillsMs": 1977,
+            "afterStillsMs": 2014,
+            "beforeVideoMs": 4429,
+            "afterVideoMs": 4401,
+            "boxesMs": 1697,
+            "totalMs": 14519
           }
         }
       },
       "timings": {
-        "totalMs": 28488
+        "totalMs": 28644
       }
     }
   ],
   "timings": {
-    "totalMs": 87231
+    "totalMs": 86136
   }
 }
