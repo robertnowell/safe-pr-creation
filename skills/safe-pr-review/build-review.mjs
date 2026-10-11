@@ -30,6 +30,8 @@ const features = review.features.map((f) => {
   return { ...f, viewports };
 });
 const data = { ...review, features, generatedAt: new Date().toISOString() };
-const tpl = fs.readFileSync(path.join(here, 'template.html'), 'utf8');
+const tplName = process.env.SPR_TEMPLATE || 'template-deck.html';
+const fonts = fs.existsSync(path.join(here, 'fonts.css')) ? fs.readFileSync(path.join(here, 'fonts.css'), 'utf8') : '';
+const tpl = fs.readFileSync(path.join(here, tplName), 'utf8').replace('/*FONTS*/', fonts);
 fs.writeFileSync(path.join(outDir, 'index.html'), tpl.replace('/*DATA*/', JSON.stringify(data).replace(/<\//g, '<\\/')));
 console.log('review written:', path.join(outDir, 'index.html'), 'features:', features.length);

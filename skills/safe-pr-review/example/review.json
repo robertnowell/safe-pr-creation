@@ -6,7 +6,12 @@
   "title": "Scoreboard: group live games by sport, top 3 per sport, one best-odds action per game",
   "author": "dev agent (Claude Code), requested by Robert",
   "url": "https://github.com/robertnowell/safe-pr-creation/pull/1",
-  "base": "main"
+  "base": "main",
+  "stats": {
+   "files": 5,
+   "additions": 370,
+   "deletions": 2386
+  }
  },
  "goal": {
   "text": "Top three live games per sport, each with a trade.",
@@ -14,9 +19,137 @@
  },
  "architecture": {
   "svg": "<svg role=\"img\" style=\"width:480px;max-width:100%;height:auto\"\n viewBox=\"0.00 0.00 480.00 245.00\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n<g id=\"graph0\" class=\"graph\" transform=\"scale(1 1) rotate(0) translate(8.64 236)\">\n<title>G</title>\n<g id=\"node1\" class=\"node\">\n<title>fan</title>\n<path fill=\"#fcfbf8\" stroke=\"#c9c4b8\" d=\"M132.88,-225.2C132.88,-225.2 41.33,-225.2 41.33,-225.2 35.33,-225.2 29.33,-219.2 29.33,-213.2 29.33,-213.2 29.33,-201.2 29.33,-201.2 29.33,-195.2 35.33,-189.2 41.33,-189.2 41.33,-189.2 132.88,-189.2 132.88,-189.2 138.88,-189.2 144.88,-195.2 144.88,-201.2 144.88,-201.2 144.88,-213.2 144.88,-213.2 144.88,-219.2 138.88,-225.2 132.88,-225.2\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"87.11\" y=\"-203.6\" font-family=\"Helvetica,sans-Serif\" font-size=\"12.00\" fill=\"#1f1e1c\">Fan on novig.com</text>\n</g>\n<g id=\"node2\" class=\"node\">\n<title>home</title>\n<path fill=\"#fcfbf8\" stroke=\"#c9c4b8\" d=\"M116.2,-131.68C116.2,-131.68 58.01,-131.68 58.01,-131.68 52.01,-131.68 46.01,-125.68 46.01,-119.68 46.01,-119.68 46.01,-107.68 46.01,-107.68 46.01,-101.68 52.01,-95.68 58.01,-95.68 58.01,-95.68 116.2,-95.68 116.2,-95.68 122.2,-95.68 128.2,-101.68 128.2,-107.68 128.2,-107.68 128.2,-119.68 128.2,-119.68 128.2,-125.68 122.2,-131.68 116.2,-131.68\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"87.11\" y=\"-110.08\" font-family=\"Helvetica,sans-Serif\" font-size=\"12.00\" fill=\"#1f1e1c\">Home page</text>\n</g>\n<g id=\"edge1\" class=\"edge\">\n<title>fan&#45;&gt;home</title>\n<path fill=\"none\" stroke=\"#57534c\" d=\"M87.11,-188.99C87.11,-175.27 87.11,-155.85 87.11,-140.31\"/>\n<polygon fill=\"#57534c\" stroke=\"#57534c\" points=\"89.56,-140.64 87.11,-133.64 84.66,-140.64 89.56,-140.64\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"102.09\" y=\"-157.14\" font-family=\"Helvetica,sans-Serif\" font-size=\"11.00\" fill=\"#57534c\">opens</text>\n</g>\n<g id=\"node3\" class=\"node\">\n<title>strip</title>\n<path fill=\"#fcfbf8\" stroke=\"#a8762a\" stroke-width=\"1.6\" d=\"M106.21,-40.32C106.21,-40.32 12,-40.32 12,-40.32 6,-40.32 0,-34.32 0,-28.32 0,-28.32 0,-12 0,-12 0,-6 6,0 12,0 12,0 106.21,0 106.21,0 112.21,0 118.21,-6 118.21,-12 118.21,-12 118.21,-28.32 118.21,-28.32 118.21,-34.32 112.21,-40.32 106.21,-40.32\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"59.11\" y=\"-23.76\" font-family=\"Helvetica,sans-Serif\" font-size=\"12.00\" fill=\"#1f1e1c\">Before: live strip,</text>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"59.11\" y=\"-9.36\" font-family=\"Helvetica,sans-Serif\" font-size=\"12.00\" fill=\"#1f1e1c\">20 games in a row</text>\n</g>\n<g id=\"edge2\" class=\"edge\">\n<title>home&#45;&gt;strip</title>\n<path fill=\"none\" stroke=\"#57534c\" d=\"M70.4,-95.37C65.34,-89 60.44,-81.42 57.81,-73.52 55.28,-65.92 54.64,-57.34 54.9,-49.37\"/>\n<polygon fill=\"#57534c\" stroke=\"#57534c\" points=\"57.33,-49.69 55.38,-42.53 52.45,-49.35 57.33,-49.69\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"76.46\" y=\"-63.62\" font-family=\"Helvetica,sans-Serif\" font-size=\"11.00\" fill=\"#57534c\">renders</text>\n</g>\n<g id=\"node4\" class=\"node\">\n<title>board</title>\n<path fill=\"#fcfbf8\" stroke=\"#4a5a2b\" stroke-width=\"1.6\" d=\"M286.21,-40.32C286.21,-40.32 178,-40.32 178,-40.32 172,-40.32 166,-34.32 166,-28.32 166,-28.32 166,-12 166,-12 166,-6 172,0 178,0 178,0 286.21,0 286.21,0 292.21,0 298.21,-6 298.21,-12 298.21,-12 298.21,-28.32 298.21,-28.32 298.21,-34.32 292.21,-40.32 286.21,-40.32\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"232.11\" y=\"-23.76\" font-family=\"Helvetica,sans-Serif\" font-size=\"12.00\" fill=\"#1f1e1c\">After: board by sport,</text>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"232.11\" y=\"-9.36\" font-family=\"Helvetica,sans-Serif\" font-size=\"12.00\" fill=\"#1f1e1c\">top 3 per sport</text>\n</g>\n<g id=\"edge3\" class=\"edge\">\n<title>home&#45;&gt;board</title>\n<path fill=\"none\" stroke=\"#57534c\" d=\"M105.17,-95.3C117.08,-84.4 133.37,-70.54 149.28,-60.32 157.94,-54.76 167.51,-49.51 176.99,-44.77\"/>\n<polygon fill=\"#57534c\" stroke=\"#57534c\" points=\"177.97,-47.01 183.18,-41.74 175.82,-42.61 177.97,-47.01\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"187.19\" y=\"-63.62\" font-family=\"Helvetica,sans-Serif\" font-size=\"11.00\" fill=\"#57534c\">renders instead</text>\n</g>\n<g id=\"node5\" class=\"node\">\n<title>games</title>\n<path fill=\"#fcfbf8\" stroke=\"#c9c4b8\" d=\"M271.2,-133.84C271.2,-133.84 193.01,-133.84 193.01,-133.84 187.01,-133.84 181.01,-127.84 181.01,-121.84 181.01,-121.84 181.01,-105.52 181.01,-105.52 181.01,-99.52 187.01,-93.52 193.01,-93.52 193.01,-93.52 271.2,-93.52 271.2,-93.52 277.2,-93.52 283.2,-99.52 283.2,-105.52 283.2,-105.52 283.2,-121.84 283.2,-121.84 283.2,-127.84 277.2,-133.84 271.2,-133.84\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"232.11\" y=\"-117.28\" font-family=\"Helvetica,sans-Serif\" font-size=\"12.00\" fill=\"#1f1e1c\">games.js</text>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"232.11\" y=\"-102.88\" font-family=\"Helvetica,sans-Serif\" font-size=\"12.00\" fill=\"#1f1e1c\">(20 live games)</text>\n</g>\n<g id=\"edge4\" class=\"edge\">\n<title>games&#45;&gt;board</title>\n<path fill=\"none\" stroke=\"#57534c\" d=\"M231.34,-93.16C231.13,-86.89 230.93,-79.91 230.83,-73.52 230.7,-65.73 230.8,-57.28 230.99,-49.49\"/>\n<polygon fill=\"#57534c\" stroke=\"#57534c\" points=\"233.44,-49.63 231.19,-42.56 228.54,-49.49 233.44,-49.63\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"280.97\" y=\"-63.62\" font-family=\"Helvetica,sans-Serif\" font-size=\"11.00\" fill=\"#57534c\">ranked by closeness</text>\n</g>\n<g id=\"node6\" class=\"node\">\n<title>odds</title>\n<path fill=\"#fcfbf8\" stroke=\"#c9c4b8\" d=\"M399.54,-133.84C399.54,-133.84 324.67,-133.84 324.67,-133.84 318.67,-133.84 312.67,-127.84 312.67,-121.84 312.67,-121.84 312.67,-105.52 312.67,-105.52 312.67,-99.52 318.67,-93.52 324.67,-93.52 324.67,-93.52 399.54,-93.52 399.54,-93.52 405.54,-93.52 411.54,-99.52 411.54,-105.52 411.54,-105.52 411.54,-121.84 411.54,-121.84 411.54,-127.84 405.54,-133.84 399.54,-133.84\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"362.11\" y=\"-117.28\" font-family=\"Helvetica,sans-Serif\" font-size=\"12.00\" fill=\"#1f1e1c\">suggestOdds()</text>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"362.11\" y=\"-102.88\" font-family=\"Helvetica,sans-Serif\" font-size=\"12.00\" fill=\"#1f1e1c\">placeholder</text>\n</g>\n<g id=\"edge5\" class=\"edge\">\n<title>odds&#45;&gt;board</title>\n<path fill=\"none\" stroke=\"#57534c\" d=\"M355.12,-93.06C350.38,-82.15 343.13,-69.06 333.11,-60.32 325.2,-53.42 315.95,-47.67 306.3,-42.9\"/>\n<polygon fill=\"#57534c\" stroke=\"#57534c\" points=\"307.62,-40.81 300.24,-40.07 305.55,-45.25 307.62,-40.81\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"388.76\" y=\"-63.62\" font-family=\"Helvetica,sans-Serif\" font-size=\"11.00\" fill=\"#57534c\">Best odds \u00b7 Trade</text>\n</g>\n<g id=\"node7\" class=\"node\">\n<title>book</title>\n<path fill=\"#fcfbf8\" stroke=\"#c9c4b8\" d=\"M401.54,-227.36C401.54,-227.36 322.67,-227.36 322.67,-227.36 316.67,-227.36 310.67,-221.36 310.67,-215.36 310.67,-215.36 310.67,-199.04 310.67,-199.04 310.67,-193.04 316.67,-187.04 322.67,-187.04 322.67,-187.04 401.54,-187.04 401.54,-187.04 407.54,-187.04 413.54,-193.04 413.54,-199.04 413.54,-199.04 413.54,-215.36 413.54,-215.36 413.54,-221.36 407.54,-227.36 401.54,-227.36\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"362.11\" y=\"-210.8\" font-family=\"Helvetica,sans-Serif\" font-size=\"12.00\" fill=\"#1f1e1c\">Order book API</text>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"362.11\" y=\"-196.4\" font-family=\"Helvetica,sans-Serif\" font-size=\"12.00\" fill=\"#1f1e1c\">(not wired)</text>\n</g>\n<g id=\"edge6\" class=\"edge\">\n<title>book&#45;&gt;odds</title>\n<path fill=\"none\" stroke=\"#a8762a\" stroke-width=\"1.6\" d=\"M362.11,-186.79C362.11,-174.17 362.11,-157.5 362.11,-143.36\"/>\n<polygon fill=\"#a8762a\" stroke=\"#a8762a\" stroke-width=\"1.6\" points=\"364.56,-143.48 362.11,-136.48 359.66,-143.48 364.56,-143.48\"/>\n<text xml:space=\"preserve\" text-anchor=\"middle\" x=\"412.54\" y=\"-157.14\" font-family=\"Helvetica,sans-Serif\" font-size=\"11.00\" fill=\"#1f1e1c\">follow&#45;up: real prices</text>\n</g>\n</g>\n</svg>\n\n",
-  "before": "The home page renders a horizontal strip of every live game, twenty cards in a row, no action on any of them.",
-  "after": "The same slot renders a board grouped by sport with the three closest games per sport and a Best odds suggestion plus a Trade button on each. The odds come from a placeholder function until the order book API is wired; that edge is amber in the drawing.",
-  "dot": "see architecture.dot"
+  "before": {
+   "headline": "One strip, twenty games, no action.",
+   "nodes": [
+    {
+     "id": "fan",
+     "label": "Fan",
+     "kicker": "Visitor",
+     "x": 0,
+     "y": 1
+    },
+    {
+     "id": "home",
+     "label": "Home page",
+     "kicker": "novig.com",
+     "x": 1,
+     "y": 1
+    },
+    {
+     "id": "strip",
+     "label": "Live strip",
+     "kicker": "20 cards in a row",
+     "x": 2,
+     "y": 1,
+     "state": "removed"
+    },
+    {
+     "id": "feed",
+     "label": "Live scores",
+     "kicker": "API feed",
+     "x": 2,
+     "y": 0
+    }
+   ],
+   "edges": [
+    [
+     "fan",
+     "home",
+     "opens"
+    ],
+    [
+     "home",
+     "strip",
+     "renders"
+    ],
+    [
+     "feed",
+     "strip",
+     "every game"
+    ]
+   ]
+  },
+  "after": {
+   "headline": "A board by sport, three games, one trade each.",
+   "nodes": [
+    {
+     "id": "fan",
+     "label": "Fan",
+     "kicker": "Visitor",
+     "x": 0,
+     "y": 1
+    },
+    {
+     "id": "home",
+     "label": "Home page",
+     "kicker": "novig.com",
+     "x": 1,
+     "y": 1
+    },
+    {
+     "id": "board",
+     "label": "Board by sport",
+     "kicker": "top 3 per sport",
+     "x": 2,
+     "y": 1,
+     "state": "new"
+    },
+    {
+     "id": "feed",
+     "label": "Live scores",
+     "kicker": "games.js, 20 games",
+     "x": 2,
+     "y": 0,
+     "state": "changed"
+    },
+    {
+     "id": "odds",
+     "label": "suggestOdds()",
+     "kicker": "placeholder odds",
+     "x": 3,
+     "y": 1,
+     "state": "new"
+    },
+    {
+     "id": "book",
+     "label": "Order book",
+     "kicker": "not wired yet",
+     "x": 3,
+     "y": 0,
+     "state": "planned"
+    }
+   ],
+   "edges": [
+    [
+     "fan",
+     "home",
+     "opens"
+    ],
+    [
+     "home",
+     "board",
+     "renders"
+    ],
+    [
+     "feed",
+     "board",
+     "ranked by closeness"
+    ],
+    [
+     "odds",
+     "board",
+     "best odds"
+    ],
+    [
+     "book",
+     "odds",
+     "real prices, later"
+    ]
+   ]
+  },
+  "beforeText": "Every live game, in a row, and nothing to do with any of them.",
+  "afterText": "The same slot. Games grouped by sport, the three closest first, and a trade on each. The odds are a placeholder until the order book is wired."
  },
  "risks": [
   {
@@ -134,8 +267,16 @@
   }
  ],
  "why": {
-  "headline": "More PRs merged safely is the point, because each one is a record.",
-  "text": "Every review here stores the goal, the gates, the evidence and each verdict and comment. Promoting a winning test is the case where the target is known, so the port can be scored against the winner in minutes, verdicts calibrate that scorer, and the merge rate stays the scoreboard. The record starts with this PR."
+  "headline": "Every safe merge is a record.",
+  "text": "Goal, gates, evidence, each verdict and comment are stored with the PR. The port is scored against the winner in minutes; verdicts calibrate the scorer; merges stay the scoreboard.",
+  "steps": [
+   "Record",
+   "Parity score",
+   "Lessons",
+   "Prompt trials",
+   "Verdict model",
+   "Scoreboard"
+  ]
  },
  "footer": "Generated by the safe-pr-review skill for robertnowell/safe-pr-creation PR #1 on 10 Oct 2026. Before = main (Novig home frozen 17:11 PT); after = branch novig/scoreboard-by-sport. Evidence captured with Playwright on this Mac; gates ran the same evening."
 }
